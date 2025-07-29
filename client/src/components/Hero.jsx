@@ -58,7 +58,7 @@ const Hero = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: isMobile ? "+=85" : "+=3500",
+          end: isMobile ? "+=900" : "+=3500",
           scrub: 0.3,
           pin: true,
           anticipatePin: 1,
@@ -133,12 +133,14 @@ const Hero = () => {
         "<"
       );
 
-      return () => context.revert();
+      // ✅ Don't call context.revert() here — it's already handled by mm.revert()
+      return () => {};
     }
   );
 
-  return () => mm.revert();
+  return () => mm.revert(); // ✅ correct cleanup
 }, []);
+
 
 
   return (

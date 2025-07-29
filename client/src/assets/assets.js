@@ -19,6 +19,7 @@ import tick_icon from './tick_icon.svg'
 import bg from './bg.jpg'
 import bg_video from './bg_video.mp4'
 import test_mask from './test_mask.svg?url'
+import bg_video_2 from './bg_video_2.mp4'
 
 export const assets = {
     Logo,
@@ -41,7 +42,8 @@ export const assets = {
     tick_icon,
     bg,
     bg_video,
-    test_mask
+    test_mask,
+    bg_video_2
 }
 
 export const menuLinks = [
@@ -56,95 +58,56 @@ export const menuLinks = [
 export const eventsData = [
     {
         name: "Murder Mystery",
-        status: "Upcoming",
         Month: "September",
         Date: "12th September",
         Venue: "Mehek",
+        type: 'Pantheon',
         image: assets.eventposter,
-        description: "Ab interesting murder solving case."
+        description: "An interesting murder solving case.",
+        teamSize: "4",
+        status: "Upcoming"
     },
     {
         name: "Murder Mystery",
-        status: "Upcoming",
         Month: "September",
         Date: "12th September",
         Venue: "Mehek",
+        type: 'Pantheon',
         image: assets.eventposter,
-        description: "Ab interesting murder solving case."
+        description: "An interesting murder solving case.",
+        teamSize: "4",
+        status: "",
     },
     {
         name: "Murder Mystery",
-        status: "Upcoming",
         Month: "September",
         Date: "12th September",
-        Venue: "Mehek",
+        Venue: "Mehek B",
+        type: 'Bitotsav',
         image: assets.eventposter,
-        description: "Ab interesting murder solving case."
+        description: "An interesting murder solving case.",
+        teamSize: "4"
     },
     {
         name: "Murder Mystery",
-        status: "Upcoming",
         Month: "September",
         Date: "12th September",
-        Venue: "Mehek",
+        Venue: "Mehek D",
+        type: 'Deepotsav',
         image: assets.eventposter,
-        description: "Ab interesting murder solving case."
+        description: "An interesting murder solving case.",
+        teamSize: "4"
     },
     {
         name: "Murder Mystery",
-        status: "Completed",
         Month: "September",
         Date: "12th September",
-        Venue: "Mehek",
+        Venue: "Mehek S",
+        type: 'Social Events',
         image: assets.eventposter,
-        description: "Ab interesting murder solving case."
+        description: "An interesting murder solving case.",
+        teamSize: "4"
     },
-    {
-        name: "Murder Mystery",
-        status: "Completed",
-        Month: "September",
-        Date: "12th September",
-        Venue: "Mehek",
-        image: assets.eventposter,
-        description: "Ab interesting murder solving case."
-    },
-    {
-        name: "Murder Mystery",
-        status: "Completed",
-        Month: "September",
-        Date: "12th September",
-        Venue: "Mehek",
-        image: assets.eventposter,
-        description: "Ab interesting murder solving case."
-    },
-    {
-        name: "Murder Mystery",
-        status: "Completed",
-        Month: "September",
-        Date: "12th September",
-        Venue: "Mehek",
-        image: assets.eventposter,
-        description: "Ab interesting murder solving case."
-    },
-    {
-        name: "Murder Mystery",
-        status: "Completed",
-        Month: "September",
-        Date: "12th September",
-        Venue: "Mehek",
-        image: assets.eventposter,
-        description: "Ab interesting murder solving case."
-    },
-    {
-        name: "Murder Mystery",
-        status: "Completed",
-        Month: "September",
-        Date: "12th September",
-        Venue: "Mehek",
-        image: assets.eventposter,
-        description: "Ab interesting murder solving case."
-    },
-
 ]
 
 export const contentData = [
