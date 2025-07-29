@@ -10,7 +10,7 @@ function Home() {
   return (
     <div>
             <Hero />
-<div className="relative bg-[#0c0c0c] text-white overflow-x-hidden">
+<div className="relative hero-background text-white overflow-x-hidden">
 
       {/* 🔹 Background Blobs - Stationary and behind content */}
       <motion.div

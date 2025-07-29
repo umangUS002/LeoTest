@@ -27,7 +27,7 @@ function Content() {
     }, [filter, allContent]);
 
     return (
-        <div className='flex flex-col bg-[#0c0c0c] items-center pt-15 pb-15 px-6 '>
+        <div className='flex flex-col hero-background  items-center pt-40 max-sm:pt-20 pb-15 px-6 '>
             <motion.h1
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}

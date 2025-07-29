@@ -20,6 +20,8 @@ import bg from './bg.jpg'
 import bg_video from './bg_video.mp4'
 import test_mask from './test_mask.svg?url'
 import bg_video_2 from './bg_video_2.mp4'
+import intro_vid from './intro_vid.mp4'
+import bg_image from './bg_image.png'
 
 export const assets = {
     Logo,
@@ -43,7 +45,9 @@ export const assets = {
     bg,
     bg_video,
     test_mask,
-    bg_video_2
+    bg_video_2,
+    intro_vid,
+    bg_image
 }
 
 export const menuLinks = [

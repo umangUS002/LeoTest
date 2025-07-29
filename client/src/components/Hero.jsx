@@ -58,8 +58,8 @@ const Hero = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: isMobile ? "+=1200" : "+=3500",
-          scrub: 0.3,
+          end: isMobile ? "+=1400" : "+=3500",
+          scrub: isMobile ? 0.1 : 0.3,
           pin: true,
           anticipatePin: 1,
         },
@@ -71,7 +71,7 @@ const Hero = () => {
           scale: isMobile ? 45 : 70,
           color: "transparent",
           ease: "power2.inOut",
-          duration: 0.6,
+          duration: isMobile ? 1 : 0.6,
         },
         0
       );
@@ -133,7 +133,6 @@ const Hero = () => {
         "<"
       );
 
-      // ✅ Don't call context.revert() here — it's already handled by mm.revert()
       return () => {};
     }
   );
@@ -146,11 +145,13 @@ const Hero = () => {
   return (
     <div
       ref={containerRef}
-      className="h-screen md:-mt-20 -mt-10 max-sm:h-[100vh] w-full overflow-hidden bg-black flex items-center justify-center z-99"
+      className="h-screen md:-mt-20 -mt-10 max-sm:h-[100vh] w-full overflow-hidden hero-background flex items-center justify-center z-50"
     >
       {!gatesOpened && (
         <>
-          <div className="absolute z-50 flex flex-col items-center justify-center w-full h-full pointer-events-none">
+          <div 
+          
+          className="absolute z-90 flex flex-col items-center justify-center w-full h-full pointer-events-none">
             <img src={assets.leologo} alt="Club Logo" className="w-16 h-16 md:w-20 md:h-20 object-contain mb-4" />
             <div className="w-36 md:w-48 h-2 bg-white/20 rounded-full overflow-hidden">
               <div
@@ -164,14 +165,14 @@ const Hero = () => {
             initial={{ x: 0 }}
             animate={isLoaded ? { x: "-100%" } : {}}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-text1/30 via-primary to-primary border-r-4 border-zinc-700 shadow-2xl z-40"
+            className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-text1/30 via-primary to-primary border-r-4 border-zinc-700 shadow-2xl z-70"
           />
 
           <motion.div
             initial={{ x: 0 }}
             animate={isLoaded ? { x: "100%" } : {}}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-text1/30 via-primary to-primary border-l-4 border-zinc-700 shadow-2xl z-40"
+            className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-text1/30 via-primary to-primary border-l-4 border-zinc-700 shadow-2xl z-70"
           />
         </>
       )}
@@ -190,12 +191,19 @@ const Hero = () => {
       </video>
 
       {/* LEO Text */}
+      <motion.div 
+      initial={{ opacity: 0, y: 100 }}
+        whileInView={isLoaded ? { opacity: 1, y: 0 }:{}}
+        transition={{ duration: 1.6, delay: 1.6 }}
+      className="flex flex-col text-center">
       <h1
         ref={textRef}
-        className="text-[100px] md:text-[200px] font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF] z-10"
+        className="text-[100px] md:text-[140px] font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF] z-10"
       >
         <span className="uppercase">LEO</span>
       </h1>
+      </motion.div>
+      
 
       {/* Info Section */}
       <div

@@ -17,7 +17,7 @@ function Events() {
   }, [filter]);
 
   return (
-    <div className="flex flex-col bg-[#0c0c0c] items-center pt-10 pb-30 px-4">
+    <div className="flex flex-col hero-background items-center pt-40 max-sm:pt-20 pb-30 px-4">
 
       <motion.h1
         initial={{ opacity: 0, y: 60 }}

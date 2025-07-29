@@ -31,7 +31,7 @@ function Navbar() {
       initial={{ y: 0 }}
       animate={{ y: showNavbar ? 0 : -100 }}
       transition={{ duration: 0.4 }}
-      className="fixed top-0 left-0 right-0 z-[100] backdrop-blur-xl transition-transform duration-300 flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-24 py-3.5 text-gray-600"
+      className="fixed top-0 left-0 right-0 z-60 backdrop-blur-xl transition-transform duration-300 flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-24 py-3.5 text-gray-600"
     >
       {/* Logo */}
       <Link className="flex gap-2 items-center text-text1" to="/">
