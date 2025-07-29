@@ -58,7 +58,7 @@ const Hero = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: isMobile ? "+=900" : "+=3500",
+          end: isMobile ? "+=1200" : "+=3500",
           scrub: 0.3,
           pin: true,
           anticipatePin: 1,
