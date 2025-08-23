@@ -54,7 +54,7 @@ const Blogs = () => {
       <div className="flex flex-col bg-primary md:flex-row items-center justify-center gap-10 w-full max-w-7xl w-full backdrop-blur-xl rounded-lg pt-10 max-sm:pt-0 pb-10 shadow-lg shadow-text1/30">
         {/* === Left Content === */}
         <div className="relative w-full md:w-1/2 flex flex-col items-center py-10">
-          <div className="absolute  top-0 right-0 h-full md:w-10 w-8 bg-gradient-to-r max-sm:hidden from-transparent to-text1 z-10 pointer-events-none" />
+          <div className="absolute  top-0 right-0 h-full md:w-10 w-8  z-10 pointer-events-none" />
 
 
           <AnimatePresence mode="wait">

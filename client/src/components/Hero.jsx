@@ -200,7 +200,7 @@ const Hero = () => {
         ref={textRef}
         className="text-[100px] md:text-[140px] font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF] z-10"
       >
-        <span className="uppercase">LEO</span>
+        <span className="uppercase tracking-wider">LEO</span>
       </h1>
       </motion.div>
       

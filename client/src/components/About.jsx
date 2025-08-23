@@ -22,7 +22,7 @@ const aboutItems = [
 
 export default function About() {
   return (
-    <div id="about" className="relative  text-text1 py-18 max-sm:py-10 px-4 md:px-16 overflow-hidden ">
+    <div id="about" className="relative  text-text1 py-18 max-sm:py-10 px-4 md:px-30 overflow-hidden ">
 
       {/* Floating Abstract Blob */}
       <motion.div
