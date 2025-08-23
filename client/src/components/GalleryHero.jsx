@@ -165,11 +165,11 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/95 flex flex-col items-center justify-start z-50 p-6 overflow-y-auto"
+          className="fixed inset-0 pt-15 bg-black/95 flex flex-col items-center justify-start z-50 p-6 overflow-y-auto"
         >
           {/* Close button */}
           <button
-            className="absolute top-6 right-6 text-white bg-white/20 p-2 rounded-full hover:bg-white/40 transition"
+            className="absolute top-20 right-6 text-white bg-white/20 p-2 rounded-full hover:bg-white/40 transition"
             onClick={() => setGalleryImages([])}
           >
             <X size={24} />

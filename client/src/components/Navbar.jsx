@@ -51,7 +51,7 @@ function Navbar() {
 
       {/* Menu Links */}
       <div
-        className={`max-sm:bg-primary text-text1 max-sm:fixed max-sm:h-80vh text-sm max-sm:w-full max-sm:top-15 max-sm:border-t border-text1 right-0 flex flex-col sm:flex-row items-center gap-4 sm:gap-8 max-sm:p-4
+        className={`max-sm:bg-primary backdrop-blur-xl text-text1 max-sm:fixed max-sm:h-80vh text-sm max-sm:w-full max-sm:top-15 max-sm:border-t border-text1 right-0 flex flex-col sm:flex-row items-center gap-4 sm:gap-8 max-sm:p-4
         transition-all duration-300 z-50 ${
           open ? 'max-sm:translate-x-0 h-screen' : 'max-sm:translate-x-full'
         }`}

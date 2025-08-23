@@ -59,7 +59,7 @@ const Hero = () => {
           trigger: containerRef.current,
           start: "top top",
           end: isMobile ? "+=1400" : "+=3500",
-          scrub: isMobile ? 0.1 : 0.3,
+          scrub: isMobile ? 0.3 : 0.9,
           pin: true,
           anticipatePin: 1,
         },

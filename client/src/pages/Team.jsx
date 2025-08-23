@@ -4,7 +4,12 @@ import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { faculty, seniorExecutives, juniorExecutives } from "../assets/teamData";
 import pawIcon from "../assets/icons/paw4.svg";
 import bgg from "../assets/icons/bgg.jpg";
+import { useEffect } from "react";
 
+
+
+
+  
 // Variants for section animation
 const sectionVariant = {
   hidden: { opacity: 0, y: 50 },
@@ -103,9 +108,13 @@ const TeamSection = ({ title, members, isFaculty = false }) => (
 );
 
 const Team = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+  
   return (
     <div className="bg-black min-h-screen text-white">
-      <section className="relative h-[calc(100vh-70px)] flex flex-col justify-center overflow-hidden pt-20 pb-16 px-4">
+      <section className="relative h-[calc(100vh-10px)] flex flex-col justify-center overflow-hidden pt-20 pb-16 px-4">
        <img
   src={bgg}  
   alt="Decorative Background"

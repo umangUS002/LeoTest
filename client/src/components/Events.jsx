@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { assets } from "../assets/assets";
+import { useNavigate } from "react-router-dom";
 
 const eventImages = [
   assets.eventposter,
@@ -14,6 +15,7 @@ const eventImages = [
 const EventsScroller = () => {
   const scrollTopRef = useRef(null);
   const scrollBottomRef = useRef(null);
+  const navigate = useNavigate();
 
   // Scroll Top L → R
   useEffect(() => {
@@ -82,7 +84,7 @@ const EventsScroller = () => {
             Explore our club events, workshops, and speaker sessions. Join us
             for engaging learning experiences and networking opportunities.
           </motion.p>
-          <motion.button
+          <motion.button onClick={() => navigate('/events')}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}

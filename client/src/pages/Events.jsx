@@ -44,7 +44,7 @@ function Events() {
         ))}
       </div>
 
-      <div className="mt-10 max-sm:pt-5 px-4 w-full max-w-7xl md:px-20 bg-primary rounded-lg pt-10 pb-10 max-sm:pb-5 shadow-lg shadow-text1/30">
+      <div className="mt-10 max-sm:pt-5 px-4 w-full max-w-6xl md:px-20 bg-primary rounded-lg pt-10 pb-10 max-sm:pb-5 shadow-lg shadow-text1/30">
         <div className="flex flex-col gap-15">
           {event.map((event, index) => (
             <motion.div

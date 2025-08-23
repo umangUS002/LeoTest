@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { assets } from "../assets/assets";
+import { useNavigate } from "react-router-dom";
+
 
 const blogs = [
   {
@@ -39,6 +41,7 @@ const BlogCard = ({ testimonial }) => (
 );
 
 const Blogs = () => {
+  const navigate = useNavigate();
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -110,7 +113,7 @@ const Blogs = () => {
               Explore our club blogs, posts and other content. Join us for engaging learning visual experience.
             </motion.p>
 
-            <motion.button
+            <motion.button onClick={() => navigate('/content')}
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.5 }}

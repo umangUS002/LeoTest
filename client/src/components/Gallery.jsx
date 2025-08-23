@@ -3,9 +3,11 @@ import { assets, gallery } from "../assets/assets";
 import { motion } from "framer-motion";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css"; // Default theme
+import { useNavigate } from "react-router-dom";
 
 export default function Gallery() {
   const [images, setImages] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setImages(gallery);
@@ -64,7 +66,7 @@ export default function Gallery() {
         </div>
 
         <div className="text-center flex justify-center mt-5">
-          <motion.button
+          <motion.button onClick={() => navigate('/gallery')}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
