@@ -16,6 +16,7 @@
     "bootstrap": "^5.3.7",
     "framer-motion": "^12.23.7",
     "gsap": "^3.13.0",
+    "lucide-react": "^0.541.0",
     "motion": "^12.23.7",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.10",
