@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { faculty, seniorExecutives, juniorExecutives } from "../assets/teamData";
 import pawIcon from "../assets/icons/paw4.svg";
-import bg from "../assets/icons/bg2.svg";
+import bgg from "../assets/icons/bgg.jpg";
 
 // Variants for section animation
 const sectionVariant = {
@@ -106,11 +106,12 @@ const Team = () => {
   return (
     <div className="bg-black min-h-screen text-white">
       <section className="relative h-[calc(100vh-70px)] flex flex-col justify-center overflow-hidden pt-20 pb-16 px-4">
-        <img
-          src={bg}
-          alt="Decorative Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-40 z-0 pointer-events-none"
-        />
+       <img
+  src={bgg}  
+  alt="Decorative Background"
+  className="absolute inset-0 w-full h-full object-cover opacity-40 z-0 pointer-events-none"
+/>
+
 
         <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between max-w-6xl mx-auto gap-12 pb-20">
           {/* Text Section */}
