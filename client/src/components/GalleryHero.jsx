@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 
@@ -38,26 +38,37 @@ function ScrollingColumn({ imgs, duration, reverse = false }) {
   const doubled = [...imgs, ...imgs];
 
   return (
-    <div className="relative h-full w-[20%] overflow-hidden">
+    <div className="relative h-full w-full overflow-hidden flex flex-col">
       <motion.div
-        className="flex flex-col will-change-transform"
-        style={{ translateZ: 0 }}
-        animate={{ y: reverse ? ["0%", "-50%"] : ["-50%", "0%"] }}
-        transition={{ duration, ease: "linear", repeat: Infinity }}
+        className="flex flex-col h-full"
+        style={{
+          animation: `${reverse ? "scrollDown" : "scrollUp"} ${duration}s linear infinite`,
+        }}
       >
         {doubled.map((src, i) => (
           <img
             key={i}
             src={src}
             alt=""
-            loading="lazy"
-            className="w-full h-auto object-contain rounded-md my-1 mx-2 pointer-events-none"
+            className="w-full flex-1 object-cover rounded-md m-1"
           />
         ))}
       </motion.div>
+
+      <style jsx>{`
+        @keyframes scrollUp {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(-50%); }
+        }
+        @keyframes scrollDown {
+          0% { transform: translateY(-50%); }
+          100% { transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 }
+
 
 export default function HeroSection() {
   const [galleryImages, setGalleryImages] = useState([]);
@@ -90,13 +101,29 @@ export default function HeroSection() {
   return (
     <>
       {/* --- scrolling background --- */}
-      <div className="fixed inset-0 h-screen w-full flex z-0 overflow-hidden pointer-events-none">
-        <ScrollingColumn imgs={first} duration={30} reverse={false} />
-        <ScrollingColumn imgs={second} duration={34} reverse={true} />
-        <ScrollingColumn imgs={third} duration={38} reverse={false} />
-        <ScrollingColumn imgs={fourth} duration={42} reverse={true} />
-        <ScrollingColumn imgs={fifth} duration={46} reverse={false} />
-      </div>
+     <div className="fixed inset-0 h-screen w-full flex z-0 overflow-hidden pointer-events-none">
+  {/* First column */}
+  <div className="w-1/3 md:w-[20%]">
+    <ScrollingColumn imgs={first} duration={30} reverse={false} />
+  </div>
+  {/* Second column */}
+  <div className="w-1/3 md:w-[20%]">
+    <ScrollingColumn imgs={second} duration={34} reverse={true} />
+  </div>
+  {/* Third column */}
+  <div className="w-1/3 md:w-[20%]">
+    <ScrollingColumn imgs={third} duration={38} reverse={false} />
+  </div>
+
+  {/* Fourth and Fifth columns only on md+ */}
+  <div className="hidden md:flex w-[20%]">
+    <ScrollingColumn imgs={fourth} duration={42} reverse={true} />
+  </div>
+  <div className="hidden md:flex w-[20%]">
+    <ScrollingColumn imgs={fifth} duration={46} reverse={false} />
+  </div>
+</div>
+
 
       {/* --- foreground hero content --- */}
       <section
@@ -135,26 +162,27 @@ export default function HeroSection() {
 
             {/* Buttons */}
             <motion.div
-              variants={item}
-              className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-10 justify-center items-center"
-            >
-              {["bitotsav", "pantheon", "deepotsav", "social"].map((key, index) => (
-                <motion.button
-                  key={key}
-                  onClick={() => onSelectEvent(key)}
-                  whileHover={{ scale: 1.08, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`w-full sm:w-auto font-body px-8 sm:px-10 lg:px-12 py-4 sm:py-5 rounded-xl transition-all duration-400 focus-ring 
-                    ${
-                      index % 2 === 0
-                        ? "text-black bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF]/80"
-                        : "text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm"
-                    }`}
-                >
-                  <span className="uppercase text-sm tracking-wider">{key.toUpperCase()}</span>
-                </motion.button>
-              ))}
-            </motion.div>
+  variants={item}
+  className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-10 justify-center items-center"
+>
+  {["bitotsav", "pantheon", "deepotsav", "social"].map((key, index) => (
+    <motion.button
+      key={key}
+      onClick={() => onSelectEvent(key)}
+      whileHover={{ scale: 1.08, y: -2 }}
+      whileTap={{ scale: 0.95 }}
+      className={`font-body px-4 sm:px-8 lg:px-12 py-2 sm:py-4 rounded-xl transition-all duration-400 focus-ring
+        ${
+          index % 2 === 0
+            ? "text-black bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF]/80"
+            : "text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm"
+        }`}
+    >
+      <span className="uppercase text-xs sm:text-sm tracking-wider">{key.toUpperCase()}</span>
+    </motion.button>
+  ))}
+</motion.div>
+
           </motion.div>
         </div>
       </section>
