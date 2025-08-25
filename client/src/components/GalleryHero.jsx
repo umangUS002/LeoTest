@@ -163,15 +163,15 @@ export default function HeroSection() {
             {/* Buttons */}
             <motion.div
   variants={item}
-  className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-10 justify-center items-center"
+  className="grid grid-cols-2 sm:flex sm:flex-row gap-4 sm:gap-6 lg:gap-10 justify-center items-center w-full max-w-md sm:max-w-full"
 >
   {["bitotsav", "pantheon", "deepotsav", "social"].map((key, index) => (
-    <motion.button
+   <motion.button
       key={key}
       onClick={() => onSelectEvent(key)}
       whileHover={{ scale: 1.08, y: -2 }}
       whileTap={{ scale: 0.95 }}
-      className={`font-body px-4 sm:px-8 lg:px-12 py-2 sm:py-4 rounded-xl transition-all duration-400 focus-ring
+      className={`font-body px-4 py-2 sm:px-8 sm:py-4 rounded-xl transition-all duration-400 focus-ring
         ${
           index % 2 === 0
             ? "text-black bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF]/80"
