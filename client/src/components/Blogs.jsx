@@ -10,21 +10,21 @@ const blogs = [
       "The finance club has allowed me to level my game professionally and personally. It has provided me invaluable experiences in team management, strategic planning, and networking with industry professionals, opening up numerous career opportunities.",
     name: "Yoga Day",
     title: "Umang",
-    image: assets.eventposter,
+    image: assets.post1,
   },
   {
     quote:
       "Being part of the club has taught me leadership and allowed me to connect with mentors in the industry. Truly a transformative experience!",
     name: "Yoga Day",
     title: "Umang",
-    image: assets.eventposter,
+    image: assets.post2,
   },
   {
     quote:
       "This experience broadened my perspective and gave me lifelong friends and valuable skills.",
     name: "Yoga Day",
     title: "Umang",
-    image: assets.eventposter,
+    image: assets.post3,
   },
 ];
 
@@ -33,7 +33,7 @@ const BlogCard = ({ testimonial }) => (
     <img
       src={testimonial.image}
       alt={testimonial.name}
-      className="w-full h-84 max-sm:h-74 rounded-lg mx-auto mb-4 object-cover"
+      className="w-full h-104 max-sm:h-74 rounded-lg mx-auto mb-4 object-cover"
     />
     <h3 className="text-xl font-semibold text-gray-400">{testimonial.name}</h3>
     <p className="text-sm text-text1">{testimonial.title}</p>
@@ -97,7 +97,7 @@ const Blogs = () => {
               viewport={{ once: false, amount: 0.5 }}
 
               transition={{ duration: 1, delay: 0.4 }}
-              className="text-4xl sm:text-8xl font-extrabold pb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF]"
+              className="relative text-4xl  sm:text-8xl font-extrabold pb-0 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF] after:content-[''] after:absolute after:left-3/10 after:translate-x-1/2 after:-bottom-3 after:w-50 after:h-[4px] after:rounded-full after:bg-gradient-to-r after:from-[#00FFF0] after:via-[#3ABEFF] after:to-[#5F85FF] after:shadow-md"
             >
               Our Posts
             </motion.h1>
@@ -108,7 +108,7 @@ const Blogs = () => {
               transition={{ duration: 1, delay: 0.4 }}
               viewport={{ once: false, amount: 0.5 }}
 
-              className="text-white/80 sm:mt-4 mt-1 sm:text-lg text-sm"
+              className="text-white/80 sm:mt-4 mt-10 pt-6 sm:text-lg text-sm"
             >
               Explore our club blogs, posts and other content. Join us for engaging learning visual experience.
             </motion.p>

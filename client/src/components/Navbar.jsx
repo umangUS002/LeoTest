@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 function Navbar() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(true);
+  const [showNavbar, setShowNavbar] = useState(false); // initially hidden
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -23,14 +23,22 @@ function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // 👇 Listen for custom event from Hero when LEO animation ends
+    const handleShowNavbar = () => setShowNavbar(true);
+    window.addEventListener("showNavbar", handleShowNavbar);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("showNavbar", handleShowNavbar);
+    };
   }, []);
 
   return (
     <motion.div
-      initial={{ y: 0 }}
-      animate={{ y: showNavbar ? 0 : -100 }}
-      transition={{ duration: 0.4 }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: showNavbar ? 0 : -100, opacity: showNavbar ? 1 : 0 }}
+      transition={{ duration: 0.6 }}
       className="fixed top-0 left-0 right-0 z-60 backdrop-blur-xl transition-transform duration-300 flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-24 py-3.5 text-gray-600"
     >
       {/* Logo */}
@@ -43,7 +51,7 @@ function Navbar() {
         />
         <motion.p
           whileHover={{ scale: 1.05 }}
-          className="font-bold text-4xl max-sm:text-2xl bg-clip-text bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF]"
+          className="custom-font font-bold text-4xl max-sm:text-2xl bg-clip-text bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF]"
         >
           LEO
         </motion.p>

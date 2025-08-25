@@ -32,3 +32,8 @@ html, body {
   align-items: center;
   justify-content: center;
 }
+
+.custom-font{
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+}

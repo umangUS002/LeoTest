@@ -44,7 +44,7 @@ function Events() {
         ))}
       </div>
 
-      <div className="mt-10 max-sm:pt-5 px-4 w-full max-w-6xl md:px-20 bg-primary rounded-lg pt-10 pb-10 max-sm:pb-5 shadow-lg shadow-text1/30">
+      <div className="mt-10 max-sm:pt-5 px-4 w-full max-w-6xl md:px-20 bg-transparent rounded-lg pt-10 pb-10 max-sm:pb-5 shadow-lg shadow-text1/30">
         <div className="flex flex-col gap-15">
           {event.map((event, index) => (
             <motion.div
@@ -57,13 +57,13 @@ function Events() {
               <div className='md:w-1/2 w-full hover:scale-105'>
                 <img src={event.image} alt={event.name} className="w-full h-80 md:h-150 object-cover rounded-md mb-2" />
               </div>
-              <div className='flex flex-col justify-between mx-auto gap-2 md:gap-5'>
+              <div className='flex flex-col justify-between max-w-1/2 mx-auto gap-2 md:gap-5'>
                 <div className="flex flex-col justify-between items-center">
                   <h2 className="text-4xl max-sm:text-3xl font-bold px-1 max-sm:px-1">{event.name}</h2>
                   <p className="text-gray-300 text-lg">{event.Date}</p>
                 </div>
                 <p className="text-lg mb-1 mt-2 max-sm:px-1">
-                  {event.description.split(" ").slice(0, 15).join(" ")}{event.description.split(" ").length > 15 && "..."}
+                  {event.description.split(" ").slice(0, 15).join(" ")}{event.description}
                 </p>
                 <div className="text-lg mt-3 flex -pb-100 justify-between max-sm:px-1">
                   <p className="text-gray-300">Venue : {event.Venue}</p>

@@ -53,7 +53,7 @@ function Content() {
             </div>
 
             {filter === 'Blog' ? (
-                <div className='mt-6 md:mb-20 mb-0  w-full max-w-7xl px-4 md:px-10 bg-primary rounded-lg pt-5 pb-4 hadow-lg shadow-text1/30'>
+                <div className='mt-6 md:mb-20 mb-0  w-full max-w-7xl px-4 md:px-10 bg-transparent rounded-lg pt-5 pb-4 shadow-lg shadow-text1/30'>
                     <div className='grid grid-cols-1 md:grid-cols-3 gap-6 max-sm:gap-4'>
                         {content.map((event, index) => (
                             <motion.div
@@ -80,7 +80,7 @@ function Content() {
                     />
                 </div>
             ) : (filter === 'Post' ? (
-                <div className='mt-10 mb-20 w-full max-w-7xl px-4 md:px-10 bg-primary rounded-lg pt-5 pb-5 shadow-lg shadow-text1/30'>
+                <div className='mt-10 mb-20 w-full max-w-7xl px-4 md:px-10 bg-transparent rounded-lg pt-5 pb-5 shadow-lg shadow-text1/30'>
                     <div className='grid grid-cols-1 md:grid-cols-3 gap-10 max-sm:gap-4'>
                         {content.map((event, index) => (
                             <motion.div
@@ -101,7 +101,7 @@ function Content() {
                     </div>
                 </div>
             ) : (
-                <div className='mt-10 mb-20 w-full max-w-7xl px-3 md:px-10 bg-primary rounded-lg pt-5 pb-4 shadow-lg shadow-text1/30'>
+                <div className='mt-10 mb-20 w-full max-w-7xl px-3 md:px-10 bg-transparent rounded-lg pt-5 pb-4 shadow-lg shadow-text1/30'>
                     <div className='grid grid-cols-1 md:grid-cols-3 gap-10 max-sm:gap-8'>
                         {content.map((event, index) => (
                             <motion.div
@@ -111,7 +111,7 @@ function Content() {
                                 key={index} className="bg-white/10 p-4 max-sm:p-2 rounded-lg shadow-md text-white transform transition duration-300 hover:scale-105">
                                 <img src={event.image} alt={event.name} className='w-full h-30 md:h-40 object-cover rounded-md mb-2' />
                                 <h2 className='text-lg font-bold'>{event.name}</h2>
-                                <p className='text-sm mb-1 mt-2'>{event.description}</p>
+                                <p className='text-sm mb-1 mt-2'>{event.description.split(" ").slice(0, 20).join(" ") + "..."}</p>
                                 <p className='text-sm mt-2 text-gray-300'>Work Credit - {event.workCredit}</p>
                                 <div className='text-xs mt-0 flex justify-between mb-2'>
                                     <p className='text-gray-300'>{event.date}</p>
