@@ -83,7 +83,7 @@ const Hero = () => {
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top top",
-            end: isMobile ? "+=3400" : "+=4500",
+            end: isMobile ? "+=34500" : "+=4500",
             scrub: true,
             pin: true,
             anticipatePin: 1,
@@ -121,7 +121,7 @@ const Hero = () => {
           {
             opacity: 1,
             ease: "none",
-            duration: isMobile ? 1.6 : 0.3,
+            duration: isMobile ? 2.6 : 0.3,
             
           },
           "-=0.4"
@@ -134,7 +134,7 @@ const Hero = () => {
             y: 0,
             opacity: 1,
             ease: "power2.out",
-            duration: isMobile ? 1.0 : 0.4,
+            duration: isMobile ? 2.0 : 0.4,
             onStart: () => {
               animate(eventCount, 10, {
                 duration: 1,
@@ -144,7 +144,7 @@ const Hero = () => {
               });
 
               animate(participantCount, 1000, {
-                duration: isMobile ? 1.6 : 1,
+                duration: isMobile ? 2.6 : 1,
                 onUpdate(value) {
                   setParticipantDisplay(Math.floor(value));
                 },
@@ -159,7 +159,7 @@ const Hero = () => {
           {
             filter: "blur(20px)",
             ease: "power2.out",
-            duration: isMobile ? 1.6 : 0.4,
+            duration: isMobile ? 2.6 : 0.4,
           },
           "<"
         );
