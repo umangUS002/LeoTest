@@ -83,7 +83,7 @@ const Hero = () => {
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top top",
-            end: isMobile ? "+=1400" : "+=4500",
+            end: isMobile ? "+=3400" : "+=4500",
             scrub: true,
             pin: true,
             anticipatePin: 1,
@@ -93,10 +93,11 @@ const Hero = () => {
         timeline.to(
           textRef.current,
           {
-            scale: isMobile ? 45 : 270,
+            scale: isMobile ? 80 : 270,
+            transformOrigin: "center center",
             color: "transparent",
             ease: "none",
-            duration: isMobile ? 1 : 0.6,
+            duration: isMobile ? 1.6 : 0.6,
           },
           0
         );
@@ -120,7 +121,8 @@ const Hero = () => {
           {
             opacity: 1,
             ease: "none",
-            duration: 0.3,
+            duration: isMobile ? 1.6 : 0.3,
+            
           },
           "-=0.4"
         );
@@ -132,7 +134,7 @@ const Hero = () => {
             y: 0,
             opacity: 1,
             ease: "power2.out",
-            duration: 0.4,
+            duration: isMobile ? 1.0 : 0.4,
             onStart: () => {
               animate(eventCount, 10, {
                 duration: 1,
@@ -142,7 +144,7 @@ const Hero = () => {
               });
 
               animate(participantCount, 1000, {
-                duration: 1,
+                duration: isMobile ? 1.6 : 1,
                 onUpdate(value) {
                   setParticipantDisplay(Math.floor(value));
                 },
@@ -157,7 +159,7 @@ const Hero = () => {
           {
             filter: "blur(20px)",
             ease: "power2.out",
-            duration: 0.4,
+            duration: isMobile ? 1.6 : 0.4,
           },
           "<"
         );
@@ -248,7 +250,7 @@ const Hero = () => {
       >
         <h1
           ref={textRef}
-          className="text-3xl md:text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF] z-10"
+          className="text-[30px] md:text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF] z-10"
         >
           <span className="uppercase tracking-wider">LEO</span>
         </h1>

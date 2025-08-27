@@ -42,7 +42,7 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.5 }}
 
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.3 }}
         className="text-center md:hidden text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF] mt-15 mb-5 z-10 relative"
       >
         About Us
@@ -53,9 +53,9 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: false }}
 
-          transition={{ duration: 1, delay: 0.4 }}
+          transition={{ duration: 1, delay: -0.1 }}
           className="relative max-w-4xl mx-auto z-10 min-w-[50%]">
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[2px] bg-slate-600 z-0" />
 
@@ -87,7 +87,7 @@ export default function About() {
                     }}
                     transition={{
                       duration: 0.6,
-                      delay: i * 0.2,
+                      delay: i * 0.1,
                       type: "spring",
                       stiffness: 120,
                     }}
@@ -100,7 +100,7 @@ export default function About() {
                     transition={{ duration: 0.5, delay: 0.1 }}
                     viewport={{ once: false, amount: 0.5 }}
 
-                    className="mt-4 text-lg text-white/70 max-w-xl"
+                    className="mt-4 text-base sm:text-lg text-white/70 max-w-xl"
                   >
                     {item.description}
                   </motion.p>

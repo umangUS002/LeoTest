@@ -22,7 +22,7 @@ function Layout() {
       <div className='flex items-center justify-between py-2 h-[70px] px-4 sm:px-12 border-b border-text1'>
         <Link className='flex gap-2 items-center text-text1' to='/'>
             <motion.img whileHover={{scale: 1.05}} src={assets.leologo} alt="" className='h-8 max-sm:h-6'/>
-            <motion.p whileHover={{scale: 1.05}} className='font-bold text-4xl max-sm:text-2xl bg-clip-text bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF]'>LEO</motion.p>
+            <motion.p whileHover={{scale: 1.05}} className='custom-font font-bold text-4xl max-sm:text-2xl bg-clip-text bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF]'>LEO</motion.p>
         </Link>
         <button onClick={logout}  className='text-sm px-4 md:px-8  py-2 bg-text1 text-white rounded-full cursor-pointer'>Logout</button>
       </div>

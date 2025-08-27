@@ -69,7 +69,7 @@ const EventsScroller = () => {
             viewport={{ once: false, amount: 0.5 }}
 
             transition={{ duration: 1 }}
-            className="relative text-8xl mb-5 max-sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF] after:content-[''] after:absolute after:right-6/10 after:translate-x-1/2 after:-bottom-3 after:w-60 after:h-[4px] after:rounded-full after:bg-gradient-to-r after:from-[#00FFF0] after:via-[#3ABEFF] after:to-[#5F85FF] after:shadow-md"
+            className="relative text-8xl mb-5 max-sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF] after:content-[''] after:absolute after:right-6/10 max-sm:after:right-5/10 after:translate-x-1/2 after:-bottom-3 after:w-60 max-sm:after:w-30 after:h-[4px] after:rounded-full after:bg-gradient-to-r after:from-[#00FFF0] after:via-[#3ABEFF] after:to-[#5F85FF] after:shadow-md"
           >
             Events
           </motion.h1>
