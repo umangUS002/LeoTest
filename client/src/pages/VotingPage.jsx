@@ -23,35 +23,22 @@ export default function VotingPage() {
   }, [allContestants]);
 
   const handleVote = async (id) => {
-    console.log("🗳️ Attempting to vote for contestant ID:", id);
+  if (voted) return;
 
-    if (voted) {
-      console.warn("⚠️ Already voted, blocking vote action.");
-      return;
-    }
+  try {
+    console.log("🔼 Voting for contestant:", id);
+    const res = await axios.post(`/api/contestants/vote/${id}`); // <-- fix here
+    console.log("✅ Vote response:", res.data);
 
-    try {
-      console.log("📡 Sending vote request to backend...");
-      const res = await axios.post("/api/contestants/vote/", { id });
-      console.log("✅ Vote response received:", res.data);
-
-      // update contestants list
-      const updated = contestants.map((c) =>
-        c._id === id ? res.data.contestant : c
-      );
-      console.log("📌 Updated contestants state:", updated);
-
-      setContestants(updated);
-      setVoted(true);
-      localStorage.setItem("hasVoted", "true");
-
-      console.log("🎉 Vote successful! LocalStorage updated.");
-      alert("✅ Thank you for voting!");
-    } catch (err) {
-      console.error("❌ Voting failed:", err.response?.data || err.message);
-      alert(err.response?.data?.message || "Voting failed");
-    }
-  };
+    setContestants(contestants.map(c => c._id === id ? res.data.contestant : c));
+    setVoted(true);
+    localStorage.setItem("hasVoted", "true");
+    alert("✅ Thank you for voting!");
+  } catch (err) {
+    console.error("❌ Voting failed:", err.response?.data || err.message);
+    alert(err.response?.data?.message || "Voting failed");
+  }
+};
 
   return (
     <div className="min-h-screen hero-background flex flex-col items-center p-6">

@@ -3,7 +3,7 @@ import { getContestants, voteContestant, getResults } from "../controllers/voteC
 
 const router = express.Router();
 
-router.get("/", getContestants);           // public: list contestants
+router.get("/all", getContestants);           // public: list contestants
 router.post("/vote/:id", voteContestant);  // public: vote
 router.get("/results", getResults);        // admin: view results
 
