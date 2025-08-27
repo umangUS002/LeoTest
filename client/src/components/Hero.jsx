@@ -3,10 +3,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { assets } from "../assets/assets";
 import { motion, useMotionValue, animate } from "framer-motion";
+import { useNavigate } from 'react-router-dom'
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
+
+  const navigate = useNavigate();
+
   const containerRef = useRef(null);
   const textRef = useRef(null);
   const fullVideoRef = useRef(null);

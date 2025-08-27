@@ -16,6 +16,8 @@ import {Toaster} from 'react-hot-toast'
 import Content from './pages/Content'
 import ManageContent from './pages/admin/ManageContent'
 import AddContent from './pages/admin/AddContent'
+import VotingPage from './pages/VotingPage'
+import AdminDashboard from './pages/admin/AdminDashboard'
 
 function App() {
 
@@ -33,6 +35,11 @@ function App() {
         <Route path='/team' element={<Team />} />
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/content' element={<Content />} />
+
+        <Route path='/votingPage' element={<VotingPage />} />
+        <Route path='/Votedash' element={<AdminDashboard />} />
+        
+
         <Route path='/admin' element={token ? <Layout/> : <Login/>}>
             <Route index element={<ManageEvents/>} />
             <Route path='add-event' element={<AddEvent/>} />

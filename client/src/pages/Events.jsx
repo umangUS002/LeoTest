@@ -59,16 +59,16 @@ function Events() {
               </div>
               <div className='flex flex-col justify-between max-w-1/2 max-sm:max-w-full mx-auto gap-0 md:gap-5'>
                 <div className="flex flex-col justify-between items-center">
-                  <h2 className="text-4xl max-sm:text-3xl font-bold px-1 max-sm:px-1">{event.name}</h2>
-                  <p className="text-gray-300 text-lg">{event.Date}</p>
+                  <h2 className="text-4xl max-sm:text-2xl font-bold px-1 max-sm:px-1">{event.name}</h2>
+                  <p className="text-gray-300 text-lg max-sm:text-sm">{event.Date}</p>
                 </div>
                 <p className="text-lg mb-1 mt-2 max-sm:px-1 max-sm:hidden">
                   {event.description.split(" ").slice(0, 15).join(" ")}{event.description}
                 </p>
-                <p className="text-lg mb-1 mt-2 max-sm:px-1 md:hidden">
+                <p className="text-lg max-sm:text-sm mb-1 mt-2 max-sm:px-1 md:hidden">
                   {event.description.split(" ").slice(0, 15).join(" ")}
                 </p>
-                <div className="text-lg mt-3 flex -pb-100 justify-between max-sm:px-1">
+                <div className="text-lg max-sm:text-sm mt-3 flex -pb-100 justify-between max-sm:px-1">
                   <p className="text-gray-300">Venue : {event.Venue}</p>
                   <span className="text-green-400">Team Size : {event.teamSize}</span>
                 </div>

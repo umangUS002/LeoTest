@@ -6,12 +6,12 @@ function EventModal({ modalOpen, selectedEvent, setModalOpen }) {
     if (!modalOpen || !selectedEvent) return null;
 
     return (
-        <div className="max-sm:mt-10 fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center overflow-y-auto max-h-screen p-4">
+        <div className="max-sm:mt-10 fixed inset-0 z-100 bg-black bg-opacity-50 flex items-center justify-center overflow-y-auto max-h-screen p-4">
             <div className="bg-white/10 w-full max-w-6xl rounded-lg shadow-lg flex flex-col md:flex-row relative overflow-y-auto max-h-[90vh] md:h-[80vh]">
 
                 <button
                     onClick={() => setModalOpen(false)}
-                    className="absolute top-3 right-3 max-sm:right-5 text-gray-500 hover:text-red-500 text-xl"
+                    className="absolute top-6 right-3 max-sm:right-5 text-gray-500 hover:text-red-500 text-xl"
                 >
                     &times;
                 </button>

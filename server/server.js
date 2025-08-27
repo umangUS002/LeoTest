@@ -5,6 +5,7 @@ import 'dotenv/config'
 import adminRouter from './routes/adminRoutes.js'
 import eventRouter from './routes/eventRoutes.js'
 import contentRouter from './routes/contentRoutes.js'
+import router from './routes/voteRoutes.js'
 
 const app = express()
 
@@ -20,6 +21,8 @@ app.get('/',(req,res)=> res.send("API is working"));
 app.use('/api/admin', adminRouter)
 app.use('/api/event', eventRouter)
 app.use('/api/content', contentRouter)
+
+app.use("/api/contestants", router)
 
 const PORT = process.env.PORT || 3000
 
