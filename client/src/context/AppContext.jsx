@@ -46,7 +46,7 @@ export const AppProvider = ({ children }) => {
 
     const fetchContestants = async () => {
         try {
-            const { data } = await axios.get('/api/contestants/all');
+            const { data } = await axios.get('/api/contestants/');
             data.success ? setAllContestants(data.content) : toast.error(data.message);
         } catch (error) {
             toast.error(error.message);
