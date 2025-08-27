@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { AppContext, useAppContext } from "../context/AppContext";
 import { assets } from "../assets/assets";
 
@@ -8,21 +6,49 @@ export default function VotingPage() {
   const [contestants, setContestants] = useState([]);
   const [voted, setVoted] = useState(localStorage.getItem("hasVoted") === "true");
 
-  const {axios} = useAppContext(AppContext);
+  const { axios } = useAppContext(AppContext);
+  const { allContestants } = useContext(AppContext);
 
-  const { allContestants } = useContext(AppContext)
+  // 🔎 Log when component mounts
+  useEffect(() => {
+    console.log("📌 VotingPage mounted");
+    console.log("📌 Initial contestants from context:", allContestants);
+    console.log("📌 Already voted?", voted);
+  }, []);
 
- const handleVote = async (id) => {
-    if (voted) return;
+  // 🔎 Sync local contestants with context
+  useEffect(() => {
+    console.log("📌 allContestants updated from context:", allContestants);
+    setContestants(allContestants);
+  }, [allContestants]);
+
+  const handleVote = async (id) => {
+    console.log("🗳️ Attempting to vote for contestant ID:", id);
+
+    if (voted) {
+      console.warn("⚠️ Already voted, blocking vote action.");
+      return;
+    }
 
     try {
-      const  res  = await axios.post('/api/contestants/vote/', { id })
+      console.log("📡 Sending vote request to backend...");
+      const res = await axios.post("/api/contestants/vote/", { id });
+      console.log("✅ Vote response received:", res.data);
 
-      setContestants(contestants.map(c => c._id === id ? res.data.contestant : c));
+      // update contestants list
+      const updated = contestants.map((c) =>
+        c._id === id ? res.data.contestant : c
+      );
+      console.log("📌 Updated contestants state:", updated);
+
+      setContestants(updated);
       setVoted(true);
       localStorage.setItem("hasVoted", "true");
+
+      console.log("🎉 Vote successful! LocalStorage updated.");
       alert("✅ Thank you for voting!");
     } catch (err) {
+      console.error("❌ Voting failed:", err.response?.data || err.message);
       alert(err.response?.data?.message || "Voting failed");
     }
   };
@@ -34,8 +60,11 @@ export default function VotingPage() {
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl">
-        {allContestants.map((c) => (
-          <div key={c._id} className="bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center">
+        {contestants.map((c) => (
+          <div
+            key={c._id}
+            className="bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center"
+          >
             <img
               src={assets.Logo}
               alt={c.name}
@@ -46,7 +75,7 @@ export default function VotingPage() {
             <button
               onClick={() => handleVote(c._id)}
               disabled={voted}
-              className={`px-4 py-2 rounded-xl bg-primary font-medium ${
+              className={`px-4 py-2 rounded-xl font-medium ${
                 voted
                   ? "bg-gray-400 cursor-not-allowed"
                   : "bg-purple-600 hover:bg-purple-700 text-white"
