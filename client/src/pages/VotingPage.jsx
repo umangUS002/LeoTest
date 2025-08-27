@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext, useAppContext } from "../context/AppContext";
 import { assets } from "../assets/assets";
 
 export default function VotingPage() {
   const [contestants, setContestants] = useState([]);
   const [voted, setVoted] = useState(localStorage.getItem("hasVoted") === "true");
+
+  const {axios} = useAppContext(AppContext);
 
   const { allContestants } = useContext(AppContext)
 
@@ -14,7 +16,8 @@ export default function VotingPage() {
     if (voted) return;
 
     try {
-      const res = await axios.post(`http://localhost:3000/api/contestants/vote/${id}`);
+      const  res  = await axios.post('/api/contestants/vote/', { id })
+
       setContestants(contestants.map(c => c._id === id ? res.data.contestant : c));
       setVoted(true);
       localStorage.setItem("hasVoted", "true");
