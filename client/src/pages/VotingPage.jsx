@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AppContext, useAppContext } from "../context/AppContext";
 import { assets } from "../assets/assets";
+import toast from "react-hot-toast";
 
 export default function VotingPage() {
   const [contestants, setContestants] = useState([]);
@@ -9,36 +10,24 @@ export default function VotingPage() {
   const { axios } = useAppContext(AppContext);
   const { allContestants } = useContext(AppContext);
 
-  // 🔎 Log when component mounts
   useEffect(() => {
-    console.log("📌 VotingPage mounted");
-    console.log("📌 Initial contestants from context:", allContestants);
-    console.log("📌 Already voted?", voted);
-  }, []);
-
-  // 🔎 Sync local contestants with context
-  useEffect(() => {
-    console.log("📌 allContestants updated from context:", allContestants);
     setContestants(allContestants);
   }, [allContestants]);
 
   const handleVote = async (id) => {
-  if (voted) return;
+    if (voted) return;
 
-  try {
-    console.log("🔼 Voting for contestant:", id);
-    const res = await axios.post(`/api/contestants/vote/${id}`); // <-- fix here
-    console.log("✅ Vote response:", res.data);
+    try {
+        const res = await axios.post(`/api/contestants/vote/${id}`)
 
-    setContestants(contestants.map(c => c._id === id ? res.data.contestant : c));
-    setVoted(true);
-    localStorage.setItem("hasVoted", "true");
-    alert("✅ Thank you for voting!");
-  } catch (err) {
-    console.error("❌ Voting failed:", err.response?.data || err.message);
-    alert(err.response?.data?.message || "Voting failed");
-  }
-};
+        setContestants(contestants.map(c => c._id === id ? res.data.contestant : c));
+        toast.success("Thanks for Voting")
+        setVoted(true);
+        localStorage.setItem("hasVoted", "true");
+      } catch (err) {
+        alert(err.response?.data?.message || "Voting failed");
+      }
+  };
 
   return (
     <div className="min-h-screen hero-background flex flex-col items-center p-6">
