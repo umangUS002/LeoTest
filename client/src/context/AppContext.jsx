@@ -16,6 +16,7 @@ export const AppProvider = ({ children }) => {
     const [allContent, setAllContent] = useState([]);
 
     const [allContestants, setAllContestants] = useState([]);
+    const [contestantResults, setContestantResults] = useState([]);
 
     const setToken = (newToken) => {
         setTokenState(newToken);
@@ -53,6 +54,15 @@ export const AppProvider = ({ children }) => {
         }
     };
 
+    const fetchResults = async () => {
+        try {
+            const { data } = await axios.get('/api/contestants/results');
+            data.success ? setContestantResults(data.content) : toast.error(data.message);
+        } catch (error) {
+            toast.error(error.message);
+        }
+    };
+
     useEffect(() => {
     console.log("Current token:", token); // Add this line
     if (token) {
@@ -66,6 +76,7 @@ export const AppProvider = ({ children }) => {
         fetchEvents();
         fetchContent();
         fetchContestants();
+        fetchResults();
     }, []);
 
     const value = {
@@ -79,7 +90,8 @@ export const AppProvider = ({ children }) => {
         allContent,
         fetchEvents,
         fetchContent,
-        allContestants
+        allContestants,
+        contestantResults
     };
 
     return (
