@@ -7,6 +7,7 @@ const registrationSchema = new mongoose.Schema({
   branch: { type: String, required: true },
   batch: { type: String, required: true },
   teamName: { type: String, default: "" },
+  gender: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
 });
 

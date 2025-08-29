@@ -2,9 +2,9 @@ import Registration from "../models/Registration.js";
 
 export const registerEvent = async (req, res) => {
   try {
-    const { name, email, phone, branch, batch, teamName } = req.body;
+    const { name, email, phone, branch, batch, teamName, gender } = req.body;
 
-    if (!name || !email || !phone || !branch || !batch) {
+    if (!name || !email || !phone || !branch || !batch || !gender) {
       return res.status(400).json({ message: "Missing required fields" });
     }
 
@@ -15,6 +15,7 @@ export const registerEvent = async (req, res) => {
       branch,
       batch,
       teamName,
+      gender,
     });
 
     await newRegistration.save();

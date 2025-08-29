@@ -10,6 +10,7 @@ const EventModal = ({ modalOpen, selectedEvent, setModalOpen }) => {
     phone: "",
     teamName: "",
     batch: "",
+    gender: "",
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -45,6 +46,7 @@ const EventModal = ({ modalOpen, selectedEvent, setModalOpen }) => {
           phone: "",
           teamName: "",
           batch: "",
+          gender: "",
         });
         setIsRegistered(true); // ✅ switch to success view
       } else {
@@ -153,6 +155,14 @@ const EventModal = ({ modalOpen, selectedEvent, setModalOpen }) => {
               name="teamName"
               placeholder="Team Name (leave blank if individual)"
               value={formData.teamName}
+              onChange={handleChange}
+              className="w-full rounded-lg bg-slate-800 px-4 py-2 text-white placeholder-slate-400 border border-slate-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/50"
+            />
+            <input
+              type="text"
+              name="gender"
+              placeholder="Gender"
+              value={formData.gender}
               onChange={handleChange}
               className="w-full rounded-lg bg-slate-800 px-4 py-2 text-white placeholder-slate-400 border border-slate-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/50"
             />
