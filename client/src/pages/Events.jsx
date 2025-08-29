@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import EventModal from '../components/EventModal';
 import { eventsData } from '../assets/assets';
+import EventModal from '../components/EventModal';
 
 function Events() {
   const [event, setEvent] = useState([]);
@@ -43,6 +43,12 @@ function Events() {
           </button>
         ))}
       </div>
+
+      <EventModal
+  modalOpen={modalOpen} 
+  selectedEvent={selectedEvent} 
+  setModalOpen={setModalOpen} 
+/>
 
       <div className="mt-10 max-sm:pt-5 px-4 w-full max-w-6xl md:px-20 bg-transparent rounded-lg pt-10 pb-10 max-sm:pb-5 shadow-lg shadow-text1/30">
         <div className="flex flex-col gap-15 max-sm:gap-15">

@@ -90,28 +90,28 @@ export const eventsData = [
     {
         name: "Murder Mystery",
         Month: "September",
-        Date: "12th September",
-        Venue: "Mehek",
+        Date: "5th September",
+        Venue: "Mehek Canteen",
         type: 'Pantheon',
         image: assets.mm,
-        description: "The clock is ticking... Only few hours left until the Leo Club's Murder Mystery begins! As the seconds pass, tension mounts and suspicions grow. Will you crack the case, or will you get caught in its intricate web? The countdown to mystery and murder has officially started! Whispers of secret alliances and hidden motives echo through the halls. Every glance, every hushed conversation could hold the key to unraveling the impending crime. As participants gather their wits and don their disguises, the air crackles with anticipation. Who among them will emerge as the master detective, and who might be harboring deadly secrets? The game is afoot, and time waits for no one. Are you ready to step into a world where nothing is as it seems?",
+        description: "The clock is ticking... Only few days left until the Leo Club's Murder Mystery 2025 begins! As the seconds pass, tension mounts and suspicions grow. Will you crack the case, or will you get caught in its intricate web? The countdown to mystery and murder has officially started! Whispers of secret alliances and hidden motives echo through the halls. Every glance, every hushed conversation could hold the key to unraveling the impending crime. As participants gather their wits and don their disguises, the air crackles with anticipation. Who among them will emerge as the master detective, and who might be harboring deadly secrets? The game is afoot, and time waits for no one. Are you ready to step into a world where nothing is as it seems?",
         teamSize: "4",
-        status: "Upcoming"
+        status: ""
     },
     {
         name: "Mr and Miss Pantheon",
         Month: "September",
-        Date: "14th September",
-        Venue: "GP Birls",
+        Date: "7th September",
+        Venue: "GP Birla",
         type: 'Pantheon',
         image: assets.mrp,
         description: `Step into the spotlight and let your confidence, charisma, and creativity shine at Mr. & Miss Pantheon, the most glamorous fashion show of the fest. This event celebrates elegance, personality, and style while giving participants a platform to showcase not just their outfits but also their confidence and presence.
 
-Contestants will walk the ramp in themed rounds that test their fashion sense, individuality, and stage appeal. A panel of judges will evaluate participants based on criteria such as style, poise, communication skills, and overall impression. The winners will earn the prestigious titles of Mr. Pantheon and Miss Pantheon, along with prizes and glory.
+Contestants will walk the ramp in themed rounds that test their fashion sense, individuality, and stage appeal. The winners will earn the prestigious titles of Mr. Pantheon and Miss Pantheon, along with prizes and glory.
 
-This is more than a fashion show—it’s a celebration of identity, confidence, and expression. Whether you’re bold, elegant, quirky, or experimental, the ramp is yours to own!`,
+Whether you’re bold, elegant, quirky, or experimental, the ramp is yours to own!`,
         teamSize: "1",
-        status: "",
+        status: "Upcoming",
     },
     {
         name: "Takeshi Castle",

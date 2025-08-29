@@ -6,6 +6,7 @@ import adminRouter from './routes/adminRoutes.js'
 import eventRouter from './routes/eventRoutes.js'
 import contentRouter from './routes/contentRoutes.js'
 import router from './routes/voteRoutes.js'
+import regRouter from './routes/regRoutes.js'
 
 const app = express()
 
@@ -23,6 +24,7 @@ app.use('/api/event', eventRouter)
 app.use('/api/content', contentRouter)
 
 app.use("/api/contestants", router)
+app.use("/api/registrations", regRouter);
 
 const PORT = process.env.PORT || 3000
 
