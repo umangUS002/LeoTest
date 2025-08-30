@@ -8,6 +8,10 @@ const registrationSchema = new mongoose.Schema({
   batch: { type: String, required: true },
   teamName: { type: String, default: "" },
   gender: { type: String, required: true },
+  image: {type: String, required: true},
+  degree: {type: String, required: true},
+  caption: {type: String, required: true},
+  reason: {type: String, required: true},
   createdAt: { type: Date, default: Date.now },
 });
 

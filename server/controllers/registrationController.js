@@ -1,14 +1,37 @@
 import Registration from "../models/Registration.js";
+import fs from "fs";
+import imagekit from "../configs/imageKit.js";
 
 export const registerEvent = async (req, res) => {
   try {
-    const { name, email, phone, branch, batch, teamName, gender } = req.body;
+    const { name, email, phone, branch, batch, teamName, gender, caption, reason, degree } = JSON.parse(req.body.contestant);
+    const imageFile = req.file
 
-    if (!name || !email || !phone || !branch || !batch || !gender) {
+    if (!name || !email || !phone || !branch || !batch || !gender || !imageFile || !caption || !reason || !degree) {
       return res.status(400).json({ message: "Missing required fields" });
     }
 
-    const newRegistration = new Registration({
+    const fileBuffer = fs.readFileSync(imageFile.path)
+    // Upload image to imageKit
+        const response = await imagekit.upload({
+            file: fileBuffer,
+            fileName: imageFile.originalname,
+            folder: "/MrMissPantheon"
+        })
+
+        // Optimization through imageKit URL transformation
+        const optimizedImageUrl = imagekit.url({
+            path: response.filePath,
+            transformation: [
+                {quality: 'auto'},  // Auto compression
+                {format: 'webp'},   // Convert to modern format
+                {width: '1280'}      // Width resizing
+            ]
+        })
+
+                const image = optimizedImageUrl;
+
+    await  Registration.create({
       name,
       email,
       phone,
@@ -16,9 +39,12 @@ export const registerEvent = async (req, res) => {
       batch,
       teamName,
       gender,
+      image,
+      caption,
+      reason,
+      degree
     });
 
-    await newRegistration.save();
 
     res.json({ success: true, message: "Registration successfull!" });
   } catch (error) {
