@@ -186,7 +186,7 @@ const juniorExecutives = [
   {
     "name": "Aditi Singh",
     "position": "Events Lead",
-    "image": getImage("34.jpg"),
+    "image": getImage("34.jpeg"),
     "email": "nzaditisingh2@gmail.com",
     "instagram": "https://www.instagram.com/__aditi.03?igsh=Z2F1dWo0Y3ExOW04&utm_source=qr",
     "linkedin": "https://www.linkedin.com/in/aditi-singh-441826243?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
