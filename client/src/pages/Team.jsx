@@ -1,46 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { faculty, seniorExecutives, juniorExecutives } from "../assets/teamData";
-import pawIcon from "../assets/icons/paw4.svg";
 import bgg from "../assets/icons/bgg.jpg";
-import { useEffect } from "react";
-
-
-
-
-
-// Variants for section animation
-const sectionVariant = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
 
 // Card hover + fade-in variant
 const cardVariant = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: (i) => ({
+  hidden: { opacity: 0, scale: 0.9, y: 40 },
+  visible: {
     opacity: 1,
     scale: 1,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.4,
-      ease: "easeOut",
-    },
-  }),
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
 };
 
-const Card = ({ member, isFaculty, index }) => (
+const Card = ({ member, isFaculty }) => (
   <motion.div
     variants={cardVariant}
-    custom={index}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.2 }}
     whileHover={{ scale: 1.05, rotateX: 2, rotateY: 2 }}
     transition={{ type: "spring", stiffness: 200, damping: 15 }}
     className="bg-white/10 cursor-pointer backdrop-blur-sm rounded-xl p-5 shadow-[0_0_20px_rgba(255,255,255,0.1)] w-72 text-center text-white hover:shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:bg-white/20 transition-all duration-300"
@@ -48,6 +28,7 @@ const Card = ({ member, isFaculty, index }) => (
     <img
       src={member.image}
       alt={member.name}
+      loading="lazy"
       className="w-32 h-32 mx-auto rounded-full object-cover mb-4 border-4 border-white/20"
     />
     <h3 className="text-xl font-semibold">{member.name}</h3>
@@ -71,59 +52,41 @@ const Card = ({ member, isFaculty, index }) => (
 );
 
 const TeamSection = ({ title, members, isFaculty = false }) => (
-  <motion.section
-    variants={sectionVariant}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, amount: 0.2 }}
-    className="py-12"
-  >
+  <section className="py-16">
     <motion.h2
-      className="text-3xl font-bold text-center text-white mb-8"
+      className="text-3xl font-bold text-center text-white mb-10"
       initial={{ opacity: 0, scale: 0.8 }}
       whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5 }}
     >
       {title}
     </motion.h2>
 
-    <motion.div
-      className="flex flex-wrap gap-8 justify-center"
-      initial="hidden"
-      whileInView="visible"
-      variants={{
-        visible: {
-          transition: {
-            staggerChildren: 0.1,
-          },
-        },
-      }}
-      viewport={{ once: true, amount: 0.2 }}
-    >
+    <div className="flex flex-wrap gap-8 justify-center items-start w-full">
       {members.map((member, idx) => (
-        <Card key={idx} member={member} isFaculty={isFaculty} index={idx} />
+        <Card key={idx} member={member} isFaculty={isFaculty} />
       ))}
-    </motion.div>
-  </motion.section>
+    </div>
+  </section>
 );
 
 const Team = () => {
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
     <div className="bg-black hero-background min-h-screen text-white">
-      <section className="relative h-[calc(100vh-10px)] flex flex-col justify-center overflow-hidden pt-20 pb-16 px-4">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 pb-16 px-4">
         <img
           src={bgg}
           alt="Decorative Background"
           className="absolute inset-0 w-full h-full object-cover opacity-40 z-0 pointer-events-none"
         />
 
-
         <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between max-w-6xl mx-auto gap-12 pb-20">
-          {/* Text Section */}
           <div>
             <motion.h1
               className="text-7xl max-sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00FFF0] via-[#3ABEFF] to-[#5F85FF]"
@@ -140,7 +103,8 @@ const Team = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-              The passionate individuals driving our club forward with dedication and vision.
+              The passionate individuals driving our club forward with dedication
+              and vision.
             </motion.p>
           </div>
         </div>
