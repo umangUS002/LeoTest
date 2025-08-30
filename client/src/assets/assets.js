@@ -105,11 +105,7 @@ export const eventsData = [
         Venue: "GP Birla",
         type: 'Pantheon',
         image: assets.mrp,
-        description: `Step into the spotlight and let your confidence, charisma, and creativity shine at Mr. & Miss Pantheon, the most glamorous fashion show of the fest. This event celebrates elegance, personality, and style while giving participants a platform to showcase not just their outfits but also their confidence and presence.
-
-Contestants will walk the ramp in themed rounds that test their fashion sense, individuality, and stage appeal. The winners will earn the prestigious titles of Mr. Pantheon and Miss Pantheon, along with prizes and glory.
-
-Whether you’re bold, elegant, quirky, or experimental, the ramp is yours to own!`,
+        description: `The lights rise, the music builds, and the runway awakens. Mr. & Miss Pantheon ’25  presented by the Leo Club is not just a stage — it’s where elegance meets ambition, where style becomes story, and where presence turns into power. This year’s theme, “Threads of Time,” celebrates more than fashion. It is about weaving your journey into every detail, letting the past and the future meet in this defining moment.It is glamour, yes — but it is also legacy. Because crowns may shine for a night, but the impact of this stage lasts far beyond it. So when the spotlight finds you… will you simply walk, or will you leave a mark time cannot forget?`,
         teamSize: "1",
         status: "Upcoming",
     },

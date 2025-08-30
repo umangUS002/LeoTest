@@ -69,7 +69,7 @@ function Events() {
                   <p className="text-gray-300 text-lg max-sm:text-sm">{event.Date}</p>
                 </div>
                 <p className="text-lg mb-1 mt-2 max-sm:px-1 max-sm:hidden">
-                  {event.description.split(" ").slice(0, 15).join(" ")}{event.description}
+                  {event.description}
                 </p>
                 <p className="text-lg max-sm:text-sm mb-1 mt-2 max-sm:px-1 md:hidden">
                   {event.description.split(" ").slice(0, 15).join(" ")}
