@@ -21,12 +21,12 @@ const faculty = [
 
 const seniorExecutives = [
   {
-    "name": "Shubham Kumar",
-    "position": "President",
-    "image": getImage("1.jpg"),
-    "email": "shubhamk16080@gmail.com",
-    "instagram": "https://www.instagram.com/Kumar_shubham16",
-    "linkedin": "https://in.linkedin.com/in/shubhamk1608"
+    name: "Shubham Kumar",
+    position: "President",
+    image: getImage("1.jpg"),
+    email: "shubhamk16080@gmail.com",
+    instagram: "https://www.instagram.com/Kumar_shubham16",
+    linkedin: "https://in.linkedin.com/in/shubhamk1608"
   },
   {
     "name": "Adarsh Raj",

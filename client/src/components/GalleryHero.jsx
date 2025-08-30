@@ -38,7 +38,7 @@ function ScrollingColumn({ imgs, duration, reverse = false }) {
   const doubled = [...imgs, ...imgs];
 
   return (
-    <div className="relative h-full w-full overflow-hidden flex flex-col">
+    <div className="relative h-full w-full flex flex-col">
       <motion.div
         className="flex flex-col h-full"
         style={{
@@ -50,7 +50,7 @@ function ScrollingColumn({ imgs, duration, reverse = false }) {
             key={i}
             src={src}
             alt=""
-            className="w-full flex-1 object-cover rounded-md m-1"
+            className="w-full h-64 object-cover rounded-md m-1"
           />
         ))}
       </motion.div>
@@ -101,7 +101,7 @@ export default function HeroSection() {
   return (
     <>
       {/* --- scrolling background --- */}
-     <div className="fixed inset-0 h-screen w-full flex z-0 overflow-hidden pointer-events-none">
+     <div className="fixed inset-0 min-h-screen w-full flex z-0 pointer-events-none">
   {/* First column */}
   <div className="w-1/3 md:w-[20%]">
     <ScrollingColumn imgs={first} duration={30} reverse={false} />
@@ -128,7 +128,7 @@ export default function HeroSection() {
       {/* --- foreground hero content --- */}
       <section
         id="gallery"
-        className="relative h-screen w-full flex flex-col items-center justify-center bg-transparent overflow-hidden z-10"
+        className="relative min-h-screen w-full flex flex-col items-center justify-center bg-transparent z-10"
       >
         <div className="absolute inset-0 bg-black/77 z-10" />
 

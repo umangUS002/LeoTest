@@ -50,7 +50,7 @@ function Footer() {
                     className='flex flex-wrap gap-38 max-sm:gap-10'>
                     <div>
                         <h2 className='text-base font-medium text-text1 uppercase'>Quick Links</h2>
-                        <ul className='mt-3 flex flex-col gap-1.5 text-lg'>
+                        <ul className='mt-3 flex flex-col gap-1.5 text-lg max-sm:text-base'>
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/events">Events</Link></li>
                             <li><Link to="/team">Team</Link></li>
@@ -60,7 +60,7 @@ function Footer() {
 
                     <div>
                         <h2 className='text-base font-medium text-text1 uppercase'>Resources</h2>
-                        <ul className='mt-3 flex flex-col gap-1.5 text-lg'>
+                        <ul className='mt-3 flex flex-col gap-1.5 text-lg max-sm:text-base'>
                             <li><Link to="/gallery">Gallery</Link></li>
                             <li><Link to="/content">Content</Link></li>
                             <li><Link to="/">Join Us</Link></li>
@@ -69,8 +69,8 @@ function Footer() {
                     </div>
 
                     <div>
-                        <h2 className='text-base font-medium text-text1 uppercase'>Contact Us</h2>
-                        <ul className='mt-3 flex flex-col gap-1.5 text-lg'>
+                        <h2 className='text-base max-sm:text-sm font-medium text-text1 uppercase'>Contact Us</h2>
+                        <ul className='mt-3 flex flex-col gap-1.5 text-lg max-sm:text-base'>
                             <li>Birla Institute of Technology</li>
                             <li>leoclub@bitmesra.ac.in</li>
                             <li>Umang Srivastava - 7645878981</li>

@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 
 
-  
+
 // Variants for section animation
 const sectionVariant = {
   hidden: { opacity: 0, y: 50 },
@@ -111,15 +111,15 @@ const Team = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
-  
+
   return (
-    <div className="bg-black min-h-screen text-white">
+    <div className="bg-black hero-background min-h-screen text-white">
       <section className="relative h-[calc(100vh-10px)] flex flex-col justify-center overflow-hidden pt-20 pb-16 px-4">
-       <img
-  src={bgg}  
-  alt="Decorative Background"
-  className="absolute inset-0 w-full h-full object-cover opacity-40 z-0 pointer-events-none"
-/>
+        <img
+          src={bgg}
+          alt="Decorative Background"
+          className="absolute inset-0 w-full h-full object-cover opacity-40 z-0 pointer-events-none"
+        />
 
 
         <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between max-w-6xl mx-auto gap-12 pb-20">
@@ -137,8 +137,8 @@ const Team = () => {
             <motion.p
               className="text-gray-300 mt-3 text-xl"
               initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
             >
               The passionate individuals driving our club forward with dedication and vision.
             </motion.p>

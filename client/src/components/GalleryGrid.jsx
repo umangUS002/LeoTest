@@ -39,7 +39,7 @@ export default function GalleryGrid() {
   };
 
   return (
-    <section id="gallerygrid" className="relative z-20 py-20 px-6 lg:px-12 bg-black text-white">
+    <section id="gallerygrid" className="relative z-20 py-20 px-6 lg:px-12 hero-background text-white">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
         Moments from Our Journey
       </h2>

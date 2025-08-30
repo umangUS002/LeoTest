@@ -110,6 +110,12 @@ const EventModal = ({ modalOpen, selectedEvent, setModalOpen }) => {
                   <li>Sanu - 8544349672</li>
                 </ol>
               </p>
+              <h3 className="text-lg mt-3 font-semibold text-cyan-400">Registration Issue, Contact:</h3>
+                <ol>
+                  <li>Umang - 7645878981</li>
+                  <li>Hera -  9162178573</li>
+                </ol>
+                  
             </div>
 
             <div>
