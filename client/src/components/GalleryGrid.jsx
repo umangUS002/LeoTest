@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 
-// 🔹 Import images (reuse same ones from GalleryHero for consistency)
 import img1 from "../assets/gallery/img1.jpg";
 import img2 from "../assets/gallery/img2.jpg";
 import img3 from "../assets/gallery/img3.jpg";
@@ -15,10 +14,43 @@ import img9 from "../assets/gallery/img9.jpg";
 import img10 from "../assets/gallery/img10.jpg";
 import img11 from "../assets/gallery/img11.jpg";
 import img12 from "../assets/gallery/img12.jpg";
+import img13 from "../assets/gallery/img13.jpg";
+import img14 from "../assets/gallery/img14.jpg";
+import img15 from "../assets/gallery/img15.jpg";
+import img16 from "../assets/gallery/img16.jpg";
+import img17 from "../assets/gallery/img17.jpg";
+import img18 from "../assets/gallery/img18.jpg";
+import img19 from "../assets/gallery/img19.jpg";
+import img20 from "../assets/gallery/img20.jpg";
+import img21 from "../assets/gallery/img21.jpg";
+import img22 from "../assets/gallery/img22.jpg";
+import img23 from "../assets/gallery/img23.jpg";
+import img24 from "../assets/gallery/img24.jpg";
+import img25 from "../assets/gallery/img25.jpg";
+import img26 from "../assets/gallery/img26.jpg";
+import img27 from "../assets/gallery/img27.jpg";
+import img28 from "../assets/gallery/img28.jpg";
+import img29 from "../assets/gallery/img29.jpg";
+import img30 from "../assets/gallery/img30.jpg";
+import img31 from "../assets/gallery/img31.jpg";
+import img32 from "../assets/gallery/img32.jpg";
+import img33 from "../assets/gallery/img33.jpg";
+import img34 from "../assets/gallery/img34.jpeg";
+import img35 from "../assets/gallery/img35.jpeg";
+import img36 from "../assets/gallery/img36.jpeg";
+import img37 from "../assets/gallery/img37.jpeg";
+import img38 from "../assets/gallery/img38.jpeg";
+import img39 from "../assets/gallery/img39.jpeg";
+import img40 from "../assets/gallery/img40.jpeg";
+import img41 from "../assets/gallery/img41.jpeg";
+import img42 from "../assets/gallery/img42.jpeg";
 
 const images = [
   img1, img2, img3, img4, img5, img6,
   img7, img8, img9, img10, img11, img12,
+  img13, img14, img15, img16, img17, img18,
+  img19, img20, img21, img22, img23,img24,img25,img26,img27,img28,img29,img30,img35,img36,img37,img38,
+img39,img40,img41,img42,
 ];
 
 export default function GalleryGrid() {
@@ -66,7 +98,6 @@ export default function GalleryGrid() {
               className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center p-4">
-              <span className="text-white text-sm tracking-wide">Leo Club Event</span>
             </div>
           </motion.div>
         ))}

@@ -26,7 +26,24 @@ import img20 from "../assets/gallery/img20.jpg";
 import img21 from "../assets/gallery/img21.jpg";
 import img22 from "../assets/gallery/img22.jpg";
 import img23 from "../assets/gallery/img23.jpg";
-
+import img24 from "../assets/gallery/img24.jpg";
+import img25 from "../assets/gallery/img25.jpg";
+import img26 from "../assets/gallery/img26.jpg";
+import img27 from "../assets/gallery/img27.jpg";
+import img28 from "../assets/gallery/img28.jpg";
+import img29 from "../assets/gallery/img29.jpg";
+import img30 from "../assets/gallery/img30.jpg";
+import img31 from "../assets/gallery/img31.jpg";
+import img32 from "../assets/gallery/img32.jpg";
+import img33 from "../assets/gallery/img33.jpg";
+import img35 from "../assets/gallery/img35.jpeg";
+import img36 from "../assets/gallery/img36.jpeg";
+import img37 from "../assets/gallery/img37.jpeg";
+import img38 from "../assets/gallery/img38.jpeg";
+import img39 from "../assets/gallery/img39.jpeg";
+import img40 from "../assets/gallery/img40.jpeg";
+import img41 from "../assets/gallery/img41.jpeg";
+import img42 from "../assets/gallery/img42.jpeg";
 // Columns for background scrolling
 const first  = [img1, img2, img3, img4, img5];
 const second = [img6, img7, img8, img9, img10];
@@ -76,10 +93,10 @@ export default function HeroSection() {
 
   // Event-specific galleries
   const eventGalleries = {
-    bitotsav: [img1, img2, img3, img4, img5, img6],
-    pantheon: [img7, img8, img9, img10, img11],
-    deepotsav: [img12, img13, img14, img15, img16],
-    social: [img17, img18, img19, img20, img21, img22, img23],
+    bitotsav: [img35, img36,img37,img38,img39,img40,img41,img42],
+    pantheon: [img10, img31,img11,img31, img24, img30,img25, img26, img27,img28,img29,img32],
+    deepotsav: [img1, img2, img3, img4, img6,img7,img8,img9,img12,img19,img20,img21],
+    social: [img13, img14, img15, img16, img22, img23],
   };
 
   const onSelectEvent = (event) => {
@@ -231,7 +248,7 @@ export default function HeroSection() {
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center p-4">
-                  <span className="text-white text-sm tracking-wide">Leo Club Event</span>
+                  {/* <span className="text-white text-sm tracking-wide">Leo Club Event</span> */}
                 </div>
               </motion.div>
             ))}
