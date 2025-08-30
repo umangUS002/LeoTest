@@ -94,6 +94,15 @@ function AddContent() {
           </div>
 
           <div className='flex flex-col w-full'>
+            <label>Insta Link</label>
+            <input type="text" placeholder='' required className='px-3 py-2 mt-1 border border-borderColor rounded-md outline-none' value={post.instaLink} onChange={e => setPost({ ...post, instaLink: e.target.value })} />
+          </div>
+          <div className='flex flex-col w-full'>
+            <label>Facebook Link</label>
+            <input type="text" placeholder='' required className='px-3 py-2 mt-1 border border-borderColor rounded-md outline-none' value={post.fbLink} onChange={e => setPost({ ...post, fbLink: e.target.value })} />
+          </div>
+
+          <div className='flex flex-col w-full'>
             <label>Type</label>
             <select onChange={e => setPost({ ...post, type: e.target.value })} value={post.type} className='px-3 py-2 mt-1 border border-borderColor rounded-md outline-none'>
               <option value="">Select a type</option>

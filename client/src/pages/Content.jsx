@@ -95,7 +95,7 @@ function Content() {
                                     <p className='text-gray-300'>{event.date}</p>
                                     <span className='text-green-400'>{event.type}</span>
                                 </div>
-                                <a className='text-violet-400 cursor-pointer max-sm:px-1' href={event.link}>Link</a>
+                                <a className='text-violet-400 cursor-pointer max-sm:px-1' href={event.instaLink}>Link</a>
                             </motion.div>
                         ))}
                     </div>
@@ -117,7 +117,7 @@ function Content() {
                                     <p className='text-gray-300'>{event.date}</p>
                                     <span className='text-green-400'>{event.type}</span>
                                 </div>
-                                <a className='text-red-400 cursor-pointer' href={event.link}>Link</a>
+                                <a className='text-red-400 cursor-pointer' href={event.instaLink}>Link</a>
                             </motion.div>
                         ))}
                     </div>

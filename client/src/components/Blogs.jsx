@@ -6,24 +6,18 @@ import { useNavigate } from "react-router-dom";
 
 const blogs = [
   {
-    quote:
-      "The finance club has allowed me to level my game professionally and personally. It has provided me invaluable experiences in team management, strategic planning, and networking with industry professionals, opening up numerous career opportunities.",
-    name: "Yoga Day",
-    title: "Umang",
+    name: "Good Friday",
+    title: "Tushita",
     image: assets.post1,
   },
   {
-    quote:
-      "Being part of the club has taught me leadership and allowed me to connect with mentors in the industry. Truly a transformative experience!",
-    name: "Yoga Day",
-    title: "Umang",
+    name: "Ganesh Chaturthi",
+    title: "Ipsha Vats",
     image: assets.post2,
   },
   {
-    quote:
-      "This experience broadened my perspective and gave me lifelong friends and valuable skills.",
-    name: "Yoga Day",
-    title: "Umang",
+    name: "International Justice",
+    title: "Aditi",
     image: assets.post3,
   },
 ];

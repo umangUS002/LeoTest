@@ -140,14 +140,14 @@ const Hero = () => {
             ease: "power2.out",
             duration: isMobile ? 1.0 : 0.4,
             onStart: () => {
-              animate(eventCount, 10, {
+              animate(eventCount, 20, {
                 duration: 1,
                 onUpdate(value) {
                   setEventDisplay(Math.floor(value));
                 },
               });
 
-              animate(participantCount, 1000, {
+              animate(participantCount, 10000, {
                 duration: isMobile ? 1.6 : 1,
                 onUpdate(value) {
                   setParticipantDisplay(Math.floor(value));

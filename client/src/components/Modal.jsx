@@ -37,10 +37,8 @@ function Modal({ modalOpen, selectedBlog, setModalOpen }) {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               className='flex items-center gap-3 mt-3'>
-              <a href={selectedBlog.link}><img src={assets.facebook_logo} className='w-5 h-5' alt="" /></a>
-              <a href="#"><img src={assets.instagram_logo} className='w-5 h-5' alt="" /></a>
-              <a href="#"><img src={assets.twitter_logo} className='w-5 h-5' alt="" /></a>
-              <a href="#"><img src={assets.gmail_logo} className='w-5 h-5' alt="" /></a>
+              <a href={selectedBlog.fbLink}><img src={assets.facebook_logo} className='w-5 h-5' alt="" /></a>
+              <a href={selectedBlog.instaLink}><img src={assets.instagram_logo} className='w-5 h-5' alt="" /></a>
             </motion.div>
           </div>
         </div>

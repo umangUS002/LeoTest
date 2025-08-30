@@ -51,7 +51,7 @@ const Card = ({ member, isFaculty, index }) => (
       className="w-32 h-32 mx-auto rounded-full object-cover mb-4 border-4 border-white/20"
     />
     <h3 className="text-xl font-semibold">{member.name}</h3>
-    <p className="text-sm text-gray-300">{member.designation}</p>
+    <p className="text-sm text-gray-300">{member.position}</p>
     <p className="text-sm mt-1">{member.email}</p>
     {!isFaculty && (
       <div className="flex justify-center gap-4 mt-3 text-lg text-blue-400">
