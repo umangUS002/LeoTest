@@ -134,7 +134,7 @@ const seniorExecutives = [
   },
   {
     "name": "Sanchay gupta",
-    "position": "Executive Executive Member",
+    "position": "Senior Executive Member",
     "image": getImage("15.jpg"),
     "email": "sanchaygupta.72@gmail.com",
     "instagram": "",
