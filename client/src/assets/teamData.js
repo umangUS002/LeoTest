@@ -55,7 +55,7 @@ const seniorExecutives = [
   {
     "name": "Dishaan",
     "position": "Vice President",
-    "image": getImage("5.JPG"),
+    "image": getImage("33.jpg"),
     "email": "dishaand2003@gmail.com",
     "instagram": "https://www.instagram.com/dishaan_d_33?igsh=MXU5emo0Y3RjMnhscA==",
     "linkedin": "https://www.linkedin.com/in/dishaan-d-43890a2a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
