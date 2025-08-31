@@ -49,45 +49,33 @@ const images = [
   img1, img2, img3, img4, img5, img6,
   img7, img8, img9, img10, img11, img12,
   img13, img14, img15, img16, img17, img18,
-  img19, img20, img21, img22, img23,img24,img25,img26,img27,img28,img29,img30,img35,img36,img37,img38,
-img39,img40,img41,img42,
+  img19, img20, img21, img22, img23, img24,
+  img25, img26, img27, img28, img29, img30,
+  img31, img32, img33, img34, img35, img36,
+  img37, img38, img39, img40, img41, img42,
 ];
 
 export default function GalleryGrid() {
   const [selected, setSelected] = useState(null);
 
-  const container = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, scale: 0.9, y: 30 },
-    show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
-
   return (
-    <section id="gallerygrid" className="relative z-20 py-20 px-6 lg:px-12 hero-background text-white">
+    <section
+      id="gallerygrid"
+      className="relative z-20 py-20 px-6 lg:px-12 hero-background text-white"
+    >
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
         Moments from Our Journey
       </h2>
 
-      {/* 🔹 Animated grid */}
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5"
-      >
+      {/* 🔹 Animate each image individually */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
         {images.map((src, i) => (
           <motion.div
             key={i}
-            variants={item}
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="relative group cursor-pointer overflow-hidden rounded-xl shadow-lg"
             onClick={() => setSelected(src)}
             whileHover={{ scale: 1.03 }}
@@ -95,13 +83,13 @@ export default function GalleryGrid() {
             <img
               src={src}
               alt={`Gallery ${i}`}
+              loading="lazy"
               className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center p-4">
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center p-4" />
           </motion.div>
         ))}
-      </motion.div>
+      </div>
 
       {/* 🔹 Lightbox Modal */}
       {selected && (
