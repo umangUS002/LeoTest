@@ -63,13 +63,13 @@ const Hero = () => {
   };
 
   useEffect(() => {
-  const alreadyPlayed = sessionStorage.getItem("introPlayed");
+    const alreadyPlayed = sessionStorage.getItem("introPlayed");
 
-  if (!alreadyPlayed && isLoaded && gatesOpened) {
-    setShowIntroVideo(true);
-    sessionStorage.setItem("introPlayed", "true"); // mark as played
-  }
-}, [isLoaded, gatesOpened]);
+    if (!alreadyPlayed && isLoaded && gatesOpened) {
+      setShowIntroVideo(true);
+      sessionStorage.setItem("introPlayed", "true"); // mark as played
+    }
+  }, [isLoaded, gatesOpened]);
 
   // Scroll animations
   useEffect(() => {
@@ -113,9 +113,9 @@ const Hero = () => {
             ease: "none",
             duration: 0.4,
             onComplete: () => {
-          // 👇 Show Navbar after LEO finishes
-          window.dispatchEvent(new Event("showNavbar"));
-        },
+              // 👇 Show Navbar after LEO finishes
+              window.dispatchEvent(new Event("showNavbar"));
+            },
           },
           "-=0.1"
         );
@@ -126,7 +126,7 @@ const Hero = () => {
             opacity: 1,
             ease: "none",
             duration: isMobile ? 1.6 : 0.3,
-            
+
           },
           "-=0.4"
         );
@@ -168,7 +168,7 @@ const Hero = () => {
           "<"
         );
 
-        return () => {};
+        return () => { };
       }
     );
 
@@ -216,17 +216,19 @@ const Hero = () => {
 
       {/* Intro video */}
       {showIntroVideo && (
-  <video
-    ref={introVideoRef}
-    autoPlay
-    muted
-    playsInline
-    onEnded={handleIntroEnd}
-    className="absolute inset-0 w-full h-full object-cover z-[100] opacity-100 transition-opacity duration-1000"
-  >
-    <source src={assets.intro_vid} type="video/mp4" />
-  </video>
-)}
+
+        <video
+          ref={introVideoRef}
+          autoPlay
+          muted
+          playsInline
+          onEnded={handleIntroEnd}
+          className="absolute inset-0 w-full h-full object-cover z-[100] opacity-100 transition-opacity duration-1000"
+        >
+          <source src={assets.intro_vid_mob} type="video/mp4" />
+        </video>
+
+      )}
 
       {/* Background video */}
       <video
