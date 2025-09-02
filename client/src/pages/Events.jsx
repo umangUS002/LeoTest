@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { eventsData } from '../assets/assets';
 import EventModal from '../components/EventModal';
+import MMeventModal from '../components/MMeventModal';
 
 function Events() {
   const [event, setEvent] = useState([]);
   const [filter, setFilter] = useState('Pantheon');
   const [modalOpen, setModalOpen] = useState(false);
+  const [mmmodalOpen, setmmModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   // Set initial data and filter based on selected type
@@ -50,6 +52,12 @@ function Events() {
   setModalOpen={setModalOpen} 
 />
 
+<MMeventModal
+  modalOpen={mmmodalOpen} 
+  selectedEvent={selectedEvent} 
+  setModalOpen={setmmModalOpen} 
+/>
+
       <div className="mt-10 max-sm:pt-5 px-4 w-full max-w-6xl md:px-20 bg-transparent rounded-lg pt-10 pb-10 max-sm:pb-5 shadow-lg shadow-text1/30">
         <div className="flex flex-col gap-15 max-sm:gap-15">
           {event.map((event, index) => (
@@ -80,7 +88,7 @@ function Events() {
                 </div>
                 {event.status === 'Upcoming' ? (
                   <button
-                    onClick={() => { setSelectedEvent(event); setModalOpen(true); }}
+                    onClick={() => { setSelectedEvent(event); setmmModalOpen(true); }}
                     className=" -mt-10 cursor-pointer mt-4 w-full bg-gradient-to-r from-green-600 to-green-400 text-white py-2 px-4 rounded-md hover:from-green-400 hover:to-green-600 transition duration-300 font-semibold"
                   >
                     Register
