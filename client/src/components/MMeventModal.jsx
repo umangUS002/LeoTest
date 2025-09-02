@@ -4,7 +4,8 @@ import { toast } from "react-hot-toast";
 
 const MMeventModal = ({ modalOpen, selectedEvent, setModalOpen }) => {
     const [mmContestant, setmmContestant] = useState({
-        name: "", email: "", branch: "", phone: "", teamName: "", teamId: "", batch: "", name2: "", phone2: "", email2: "", name3: "", phone3: "", email3: ""  
+        name: "", email: "", branch: "", phone: "", teamName: "", teamId: "", batch: "", name2: "", phone2: "", email2: "", name3: "", phone3: "", email3: "",
+        name4: "", phone4: "", email4: ""    
     });
 
     const [isLoading, setIsLoading] = useState(false);
@@ -25,7 +26,7 @@ const MMeventModal = ({ modalOpen, selectedEvent, setModalOpen }) => {
 
             if (data.success) {
                 toast.success("Registration Successful!");
-                setmmContestant({ name: "", email: "", branch: "", phone: "", teamName: "", teamId: "", batch: "", name2: "", phone2: "", email2: "", name3: "", phone3: "", email3: ""});
+                setmmContestant({ name: "", email: "", branch: "", phone: "", teamName: "", teamId: "", batch: "", name2: "", phone2: "", email2: "", name3: "", phone3: "", email3: "", name4: "", phone4: "", email4: ""  });
                 setIsRegistered(true);
             } else {
                 toast.error(data.message || "Failed to register");
@@ -116,7 +117,7 @@ const MMeventModal = ({ modalOpen, selectedEvent, setModalOpen }) => {
                                 <a href="https://www.instagram.com/leoclub_bitmesra?igsh=MTZ4enBodXQycjNwcA==" target="_blank" rel="noopener noreferrer" className="w-full rounded-lg bg-pink-500/20 text-pink-400 px-4 py-2 font-medium hover:bg-pink-500/30 transition" > Event updates on Instagram Page </a>
                             </div>
                         </div>) : (
-                        <form className="space-y-4 max-h-[70vh] max-sm:overflow-y-auto pr-2" onSubmit={handleSubmit}>
+                        <form className="space-y-4 max-h-[120vh] overflow-y-auto pr-2" onSubmit={handleSubmit}>
                             <input type="text" name="name" placeholder="Team Leader Name" value={mmContestant.name} onChange={handleChange} required className="w-full rounded-lg bg-slate-800 px-4 py-2 text-white placeholder-slate-400 border border-slate-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/50" />
                             <input type="email" name="email" placeholder="Team Leader Email" value={mmContestant.email} onChange={handleChange} required className="w-full rounded-lg bg-slate-800 px-4 py-2 text-white placeholder-slate-400 border border-slate-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/50" />
                             <input type="text" name="branch" placeholder="Team Leader Branch" value={mmContestant.branch} onChange={handleChange} className="w-full rounded-lg bg-slate-800 px-4 py-2 text-white placeholder-slate-400 border border-slate-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/50" />
@@ -132,7 +133,11 @@ const MMeventModal = ({ modalOpen, selectedEvent, setModalOpen }) => {
 
                             <input type="text" name="name3" placeholder="Member 3 Name" value={mmContestant.name3} onChange={handleChange} required className="w-full rounded-lg bg-slate-800 px-4 py-2 text-white placeholder-slate-400 border border-slate-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/50" />
                             <input type="email" name="email3" placeholder="Member 3 Email" value={mmContestant.email3} onChange={handleChange} required className="w-full rounded-lg bg-slate-800 px-4 py-2 text-white placeholder-slate-400 border border-slate-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/50" />
-                            <input type="tel" name="phone3" placeholder="Member 3 Whatsapp Number" value={mmContestant.phone3} onChange={handleChange} className="hidden w-full rounded-lg bg-slate-800 px-4 py-2 text-white placeholder-slate-400 border border-slate-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/50" />
+                            <input type="tel" name="phone3" placeholder="Member 3 Whatsapp Number" value={mmContestant.phone3} onChange={handleChange} className="w-full rounded-lg bg-slate-800 px-4 py-2 text-white placeholder-slate-400 border border-slate-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/50" />
+
+                            <input type="text" name="name4" placeholder="Member 4 Name" value={mmContestant.name4} onChange={handleChange} required className="w-full rounded-lg bg-slate-800 px-4 py-2 text-white placeholder-slate-400 border border-slate-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/50" />
+                            <input type="email" name="email4" placeholder="Member 4 Email" value={mmContestant.email4} onChange={handleChange} required className="w-full rounded-lg bg-slate-800 px-4 py-2 text-white placeholder-slate-400 border border-slate-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/50" />
+                            <input type="tel" name="phone4" placeholder="Member 4 Whatsapp Number" value={mmContestant.phone4} onChange={handleChange} className="w-full rounded-lg bg-slate-800 px-4 py-2 text-white placeholder-slate-400 border border-slate-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/50" />
 
                             <button type="submit" disabled={isLoading} className="w-full mt-4 rounded-lg bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 py-2 font-semibold text-white shadow-lg hover:scale-105 hover:shadow-cyan-500/40 transition disabled:opacity-50">
                                 {isLoading ? "Submitting..." : "Submit Registration"}
