@@ -47,16 +47,16 @@ function Events() {
       </div>
 
       <EventModal
-  modalOpen={modalOpen} 
-  selectedEvent={selectedEvent} 
-  setModalOpen={setModalOpen} 
-/>
+        modalOpen={modalOpen}
+        selectedEvent={selectedEvent}
+        setModalOpen={setModalOpen}
+      />
 
-<MMeventModal
-  modalOpen={mmmodalOpen} 
-  selectedEvent={selectedEvent} 
-  setModalOpen={setmmModalOpen} 
-/>
+      <MMeventModal
+        modalOpen={mmmodalOpen}
+        selectedEvent={selectedEvent}
+        setModalOpen={setmmModalOpen}
+      />
 
       <div className="mt-10 max-sm:pt-5 px-4 w-full max-w-6xl md:px-20 bg-transparent rounded-lg pt-10 pb-10 max-sm:pb-5 shadow-lg shadow-text1/30">
         <div className="flex flex-col gap-15 max-sm:gap-15">
@@ -88,7 +88,17 @@ function Events() {
                 </div>
                 {event.status === 'Upcoming' ? (
                   <button
-                    onClick={() => { setSelectedEvent(event); setmmModalOpen(true); }}
+                    onClick={() => {
+                      setSelectedEvent(event);
+                      if (
+                        event.name.toLowerCase().includes("murder mystery") ||
+                        event.name.toLowerCase().includes("mr & miss pantheon")
+                      ) {
+                        setmmModalOpen(true);
+                      } else {
+                        setModalOpen(true);
+                      }
+                    }}
                     className=" -mt-10 cursor-pointer mt-4 w-full bg-gradient-to-r from-green-600 to-green-400 text-white py-2 px-4 rounded-md hover:from-green-400 hover:to-green-600 transition duration-300 font-semibold"
                   >
                     Register

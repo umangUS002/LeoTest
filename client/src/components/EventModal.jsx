@@ -51,7 +51,7 @@ const EventModal = ({ modalOpen, selectedEvent, setModalOpen }) => {
         {/* Close button */}
         <button
           onClick={() => setModalOpen(false)}
-          className="absolute top-4 right-4 text-slate-400 hover:text-white transition"
+          className="cursor-pointer absolute top-4 right-4 text-slate-400 hover:text-white transition"
         >
           ✕
         </button>
