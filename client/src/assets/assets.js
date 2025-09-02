@@ -95,7 +95,7 @@ export const eventsData = [
         name: "Murder Mystery",
         Month: "September",
         Date: "5th September",
-        Venue: "Mehek Canteen",
+        Venue: "Apni Rasoi",
         type: 'Pantheon',
         image: assets.mm,
         description: "The clock is ticking... Only few days left until the Leo Club's Murder Mystery 2025 begins! As the seconds pass, tension mounts and suspicions grow. Will you crack the case, or will you get caught in its intricate web? The countdown to mystery and murder has officially started! Whispers of secret alliances and hidden motives echo through the halls. Every glance, every hushed conversation could hold the key to unraveling the impending crime. As participants gather their wits and don their disguises, the air crackles with anticipation. Who among them will emerge as the master detective, and who might be harboring deadly secrets? The game is afoot, and time waits for no one. Are you ready to step into a world where nothing is as it seems?",
