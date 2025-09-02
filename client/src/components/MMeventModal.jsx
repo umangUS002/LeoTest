@@ -75,14 +75,13 @@ const MMeventModal = ({ modalOpen, selectedEvent, setModalOpen }) => {
                     <div className="space-y-6 text-slate-300">
                         <div>
                             <h3 className="text-lg font-semibold text-cyan-400">Description</h3>
-                            <p className="mt-1">Brace yourselves for the return of "Murder Mystery 2025", the most anticipated event of the year, hosted by the Leo Club! After last year's massive success, this thrilling contest is back, now even more captivating and mysterious. Teams of 3-4 detectives will work together to solve complex riddles, traverse hidden locations, and uncover the final mystery. With unexpected twists and intense moments, it's your chance to rise as Pantheon's ultimate detective. Seize this opportunity to claim the title of master sleuth. "Murder Mystery 2024" is waiting for you—are you ready to solve the mystery? </p>
+                            <p className="mt-1">Brace yourselves for the return of "Murder Mystery 2025", the most anticipated event of the year, hosted by the Leo Club! After last year's massive success, this thrilling contest is back, now even more captivating and mysterious. Teams of 3-4 detectives will work together to solve complex riddles, traverse hidden locations, and uncover the final mystery. With unexpected twists and intense moments, it's your chance to rise as Pantheon's ultimate detective. Seize this opportunity to claim the title of master sleuth. "Murder Mystery 2025" is waiting for you—are you ready to solve the mystery? </p>
                         </div>
 
                         <div>
                             <h3 className="text-lg font-semibold text-cyan-400">Rules & Regulations</h3>
                             <ul className="list-disc list-inside mt-1 space-y-1">
                                 <li>Teams must consist of 3-4 members, with one team leader responsible for communication.</li>
-                                <li>Participants must present their ID cards for verification before the event begins.</li>
                                 <li>Ensure you thoroughly read the rule book and comply with all event regulations.</li>
                                 <li>Participants should show respect to the event organizers and wait patiently for their turn to receive clues, which will be provided on a first-come, first-serve basis.</li>
                                 <li>In case of any disputes or issues, the decision of the Leo Club will be final and must be accepted by all participants.</li>

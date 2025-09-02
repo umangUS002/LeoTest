@@ -101,8 +101,7 @@ const EventModal = ({ modalOpen, selectedEvent, setModalOpen }) => {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold text-cyan-400">Theme</h3>
-              <h4>Threads of Time</h4>
+              <h3 className="text-lg font-semibold text-cyan-400">Theme: Threads of Time</h3>
               <p className="mt-1">
                 <ol>
                   <li>Manish - 9608402237</li>
