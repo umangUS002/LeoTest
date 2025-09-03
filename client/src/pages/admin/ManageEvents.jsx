@@ -7,9 +7,10 @@ import toast from 'react-hot-toast'
 
 function ManageEvents() {
 
-  const { events, axios, fetchEvents } = useContext(AppContext)
+  const { events, axios, fetchEvents, regMM, regMrMiss } = useContext(AppContext)
 
   const [allEvents, setEvents] = useState([])
+
 
   const fetchAllEvents = async () => {
     setEvents(events)
@@ -35,7 +36,7 @@ function ManageEvents() {
   const deleteEvent = async (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this event?");
     if (!confirmDelete) return;
-    
+
     try {
       const { data } = await axios.post('/api/event/delete-event', { id })
       if (data.success) {
@@ -55,6 +56,22 @@ function ManageEvents() {
 
   return (
     <div className='px-4 pt-10 pb-10 md:px-10 w-full'>
+
+      <div className="px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Murder Mystery */}
+        <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all">
+          <h3 className="text-lg font-semibold text-gray-700">Murder Mystery</h3>
+          <p className="mt-2 text-3xl font-bold text-indigo-600">{regMM}</p>
+          <span className="mt-1 text-sm text-gray-500">Registrations</span>
+        </div>
+
+        {/* Mr. & Miss Pantheon */}
+        <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all">
+          <h3 className="text-lg font-semibold text-gray-700">Mr. &amp; Miss Pantheon</h3>
+          <p className="mt-2 text-3xl font-bold text-pink-600">{regMrMiss}</p>
+          <span className="mt-1 text-sm text-gray-500">Registrations</span>
+        </div>
+      </div>
 
       <Title title="Manage Events" subTitle="Delete or change the status of the event." />
 

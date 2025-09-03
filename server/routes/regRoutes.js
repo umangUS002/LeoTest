@@ -5,6 +5,6 @@ import upload from "../middleware/multer.js";
 const regRouter = express.Router();
 
 regRouter.post("/register", upload.single("image"), registerEvent);       // user submits registration
-regRouter.get("/all", getRegistrations);         // admin view all registrations
+regRouter.get("/count", getRegistrations);         // admin view all registrations
 
 export default regRouter;

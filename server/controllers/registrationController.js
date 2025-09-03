@@ -54,8 +54,8 @@ export const registerEvent = async (req, res) => {
 
 export const getRegistrations = async (req, res) => {
   try {
-    const registrations = await Registration.find().populate("eventId");
-    res.status(200).json(registrations);
+    const count = await Registration.countDocuments();
+    res.json({ success: true, count });
   } catch (error) {
     res.status(500).json({ message: "Error fetching registrations" });
   }

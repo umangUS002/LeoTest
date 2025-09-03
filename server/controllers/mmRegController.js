@@ -23,3 +23,12 @@ export const registerEvent = async (req, res) => {
     res.status(500).json({ message: "Error registering", error: error.message });
   }
 };
+
+export const getRegistrations = async (req, res) => {
+  try {
+    const count = await MMregistration.countDocuments();
+    res.json({ success: true, count });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching registrations" });
+  }
+};
