@@ -100,7 +100,7 @@ const MMeventModal = ({ modalOpen, selectedEvent, setModalOpen }) => {
 
                         <div>
                             <h3 className="text-lg font-semibold text-cyan-400">Deadline</h3>
-                            <p className="mt-1">4th September, 11:59 PM </p>
+                            <p className="mt-1">5th September, 8:00 AM </p>
                         </div>
 
                     </div>
