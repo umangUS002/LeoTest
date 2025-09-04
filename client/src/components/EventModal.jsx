@@ -119,7 +119,7 @@ const EventModal = ({ modalOpen, selectedEvent, setModalOpen }) => {
 
             <div>
               <h3 className="text-lg font-semibold text-cyan-400">Deadline</h3>
-              <p className="mt-1">4th September, 6:00 PM </p>
+              <p className="mt-1">5th September, 6:00 PM </p>
             </div>
 
           </div>
