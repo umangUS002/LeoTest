@@ -105,6 +105,18 @@ function Events() {
                   </button>
                 ) : ("")}
 
+                {event.status === 'Completed' ? (
+                  <div className="max-sm:mt-5 bg-red-500/10 text-red-600 font-semibold px-4 py-2 rounded-lg border border-red-500/20 text-center">
+                    Registrations Closed
+                  </div>
+                ) : null}
+
+                {event.status === 'Partially Completed' ? (
+                  <div className="max-sm:mt-5 bg-red-500/10 text-red-600 font-semibold px-4 py-2 rounded-lg border border-red-500/20 text-center">
+                    Registrations Closed
+                  </div>
+                ) : null}
+
               </div>
 
             </motion.div>
