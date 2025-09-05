@@ -77,6 +77,14 @@ const seniorExecutives = [
     "linkedin": "https://www.linkedin.com/in/aakanksha-pathak-786711290"
   },
   {
+    "name": "Mohit Kumar Singh",
+    "position": "Co-Director",
+    "image": getImage("36.jpg"),
+    "email": "mohitkumarsingh01234@gmail.com",
+    "instagram": "https://www.instagram.com/mohitkumar7486?igsh=MTF0ZWtjN2ZtdmsycQ==",
+    "linkedin": "https://www.linkedin.com/in/mohit-kumar-singh-417301258"
+  },
+  {
     "name": "Akash Kumar Tiwary",
     "position": "Senior Webmaster",
     "image": getImage("7.jpg"),
