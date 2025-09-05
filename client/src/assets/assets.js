@@ -100,7 +100,7 @@ export const eventsData = [
         image: assets.mm,
         description: "The clock is ticking... Only few days left until the Leo Club's Murder Mystery 2025 begins! As the seconds pass, tension mounts and suspicions grow. Will you crack the case, or will you get caught in its intricate web? The countdown to mystery and murder has officially started! Whispers of secret alliances and hidden motives echo through the halls. Every glance, every hushed conversation could hold the key to unraveling the impending crime. As participants gather their wits and don their disguises, the air crackles with anticipation. Who among them will emerge as the master detective, and who might be harboring deadly secrets? The game is afoot, and time waits for no one. Are you ready to step into a world where nothing is as it seems?",
         teamSize: "4",
-        status: "Upcoming"
+        status: ""
     },
     {
         name: "Mr and Miss Pantheon",
@@ -111,7 +111,7 @@ export const eventsData = [
         image: assets.mrp,
         description: `The lights rise, the music builds, and the runway awakens. Mr. & Miss Pantheon ’25  presented by the Leo Club is not just a stage — it’s where elegance meets ambition, where style becomes story, and where presence turns into power. This year’s theme, “Threads of Time,” celebrates more than fashion. It is about weaving your journey into every detail, letting the past and the future meet in this defining moment.It is glamour, yes — but it is also legacy. Because crowns may shine for a night, but the impact of this stage lasts far beyond it. So when the spotlight finds you… will you simply walk, or will you leave a mark time cannot forget?`,
         teamSize: "1",
-        status: "Upcoming",
+        status: "",
     },
     {
         name: "Takeshi Castle",
