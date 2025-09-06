@@ -1,9 +1,6 @@
-import mongoose from "mongoose";
+const voteLogSchema = new mongoose.Schema({
+  ip: { type: String, required: true, unique: true },
+  contestantId: { type: mongoose.Schema.Types.ObjectId, ref: "Contestant", required: true }
+}, { timestamps: true });
 
-const contestantSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  image: { type: String, required: true },
-  votes: { type: Number, default: 0 }
-});
-
-export default mongoose.model("Contestants", contestantSchema);
+export default mongoose.model("VoteLog", voteLogSchema);
