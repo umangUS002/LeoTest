@@ -36,7 +36,7 @@ export default function AdminDashboard() {
             {contestantResults.map((c) => (
               <tr key={c._id} className="border-b">
                 <td className="py-2 flex items-center space-x-3">
-                  <img src={assets.leologo} alt={c.name} className="w-10 h-10 rounded-full" />
+                  <img src={c.image} alt={c.name} className="w-10 h-10 rounded-full" />
                   <span>{c.name}</span>
                 </td>
                 <td className="py-2 text-center font-semibold">{c.votes}</td>
