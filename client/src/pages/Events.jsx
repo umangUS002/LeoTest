@@ -119,12 +119,12 @@ function Events() {
                     <div className="cursor-pointer max-sm:mt-5 bg-red-500/10 text-red-600 font-semibold px-4 py-2 rounded-lg border border-red-500/20 text-center">
                       Registrations Closed
                     </div>
-                    <button onClick={() => navigate('/votingPage')} className="w-full cursor-pointer max-sm:mt-3 mt-2 bg-green-500/10 text-green-600 font-semibold px-4 py-2 rounded-lg border border-green-500/20 text-center">
+                    {/* <button onClick={() => navigate('/votingPage')} className="w-full cursor-pointer max-sm:mt-3 mt-2 bg-green-500/10 text-green-600 font-semibold px-4 py-2 rounded-lg border border-green-500/20 text-center">
                       Voting Page
                     </button>
                     <button onClick={() => navigate('/votingResults')} className="w-full cursor-pointer max-sm:mt-3 mt-2 bg-green-500/10 text-green-600 font-semibold px-4 py-2 rounded-lg border border-green-500/20 text-center">
                       Voting Results
-                    </button>
+                    </button> */}
                   </div>
 
                 ) : null}
