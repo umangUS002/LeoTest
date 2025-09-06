@@ -36,8 +36,8 @@ function App() {
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/content' element={<Content />} />
 
-        <Route path='/votingPage' element={<VotingPage />} />
-        <Route path='/votingResults' element={<AdminDashboard />} />
+        {/* <Route path='/votingPage' element={<VotingPage />} />
+        <Route path='/votingResults' element={<AdminDashboard />} /> */}
         
 
         <Route path='/admin' element={token ? <Layout/> : <Login/>}>
