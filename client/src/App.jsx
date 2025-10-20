@@ -18,6 +18,7 @@ import ManageContent from './pages/admin/ManageContent'
 import AddContent from './pages/admin/AddContent'
 import VotingPage from './pages/VotingPage'
 import AdminDashboard from './pages/admin/AdminDashboard'
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
   return (
     <div className='bg-primary text-text1'>
       <Toaster/>
+      <Analytics />
       {!isOwnerPath && <Navbar/>}
 
       <Routes>
