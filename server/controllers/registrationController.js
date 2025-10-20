@@ -1,6 +1,7 @@
 import Registration from "../models/Registration.js";
 import fs from "fs";
 import imagekit from "../configs/imageKit.js";
+import Recruitment from "../models/Recruitment.js";
 
 export const registerEvent = async (req, res) => {
   try {
@@ -60,3 +61,49 @@ export const getRegistrations = async (req, res) => {
     res.status(500).json({ message: "Error fetching registrations" });
   }
 };
+
+export const recruitmentRegistration = async(req, res) => {
+  try {
+    const { name, roll, email, phone, branch, batch, gender, subTeam, achievements, ques1, ques2, ques3, ques4} = JSON.parse(req.body.recruit);
+    const imageFile = req.file
+
+    if (!name || !email || !roll || !phone || !branch || !batch || !gender || !subTeam || !ques1 || !ques2 || !ques3 || !ques4) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
+
+    const fileBuffer = fs.readFileSync(imageFile.path)
+    // Upload image to imageKit
+        const response = await imagekit.upload({
+            file: fileBuffer,
+            fileName: imageFile.originalname,
+            folder: "/Recruitment"
+        })
+
+        // Optimization through imageKit URL transformation
+        const optimizedImageUrl = imagekit.url({
+            path: response.filePath,
+            transformation: [
+                {quality: 'auto'},  // Auto compression
+                {format: 'webp'},   // Convert to modern format
+                {width: '1280'}      // Width resizing
+            ]
+        })
+
+      const samples = optimizedImageUrl;
+
+    await  Recruitment.create({
+      name,
+      roll,
+      email,
+      phone,
+      branch,
+      batch,
+      gender, subTeam, achievements, samples, ques1, ques2, ques3, ques4
+    });
+
+
+    res.json({ success: true, message: "Registration successfull!" });
+  } catch (error) {
+    res.status(500).json({ message: "Error registering", error: error.message });
+  }
+}
