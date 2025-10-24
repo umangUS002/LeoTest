@@ -62,48 +62,91 @@ export const getRegistrations = async (req, res) => {
   }
 };
 
-export const recruitmentRegistration = async(req, res) => {
+export const recruitmentRegistration = async (req, res) => {
   try {
-    const { name, roll, email, phone, branch, batch, gender, subTeam, achievements, ques1, ques2, ques3, ques4} = JSON.parse(req.body.recruit);
-    const imageFile = req.file
-
-    if (!name || !email || !roll || !phone || !branch || !batch || !gender || !subTeam || !ques1 || !ques2 || !ques3 || !ques4) {
-      return res.status(400).json({ message: "Missing required fields" });
-    }
-
-    const fileBuffer = fs.readFileSync(imageFile.path)
-    // Upload image to imageKit
-        const response = await imagekit.upload({
-            file: fileBuffer,
-            fileName: imageFile.originalname,
-            folder: "/Recruitment"
-        })
-
-        // Optimization through imageKit URL transformation
-        const optimizedImageUrl = imagekit.url({
-            path: response.filePath,
-            transformation: [
-                {quality: 'auto'},  // Auto compression
-                {format: 'webp'},   // Convert to modern format
-                {width: '1280'}      // Width resizing
-            ]
-        })
-
-      const samples = optimizedImageUrl;
-
-    await  Recruitment.create({
+    const {
       name,
       roll,
       email,
       phone,
       branch,
       batch,
-      gender, subTeam, achievements, samples, ques1, ques2, ques3, ques4
+      gender,
+      subTeam,
+      achievements,
+      ques1,
+      ques2,
+      ques3,
+      ques4,
+      query
+    } = JSON.parse(req.body.recruit);
+
+    const imageFile = req.file;
+
+    // Basic field validation
+    if (
+      !name ||
+      !email ||
+      !roll ||
+      !phone ||
+      !branch ||
+      !batch ||
+      !gender ||
+      !subTeam ||
+      !ques1 ||
+      !ques2 ||
+      !ques3 ||
+      !ques4
+    ) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
+
+    let samples = null; // default if no image uploaded
+
+    // ✅ Upload image only if file is provided
+    if (imageFile) {
+      const fileBuffer = fs.readFileSync(imageFile.path);
+
+      const response = await imagekit.upload({
+        file: fileBuffer,
+        fileName: imageFile.originalname,
+        folder: "/Recruitment"
+      });
+
+      // Optimize uploaded image
+      const optimizedImageUrl = imagekit.url({
+        path: response.filePath,
+        transformation: [
+          { quality: "auto" },
+          { format: "webp" },
+          { width: "1280" }
+        ]
+      });
+
+      samples = optimizedImageUrl;
+    }
+
+    // Create recruitment record
+    await Recruitment.create({
+      name,
+      roll,
+      email,
+      phone,
+      branch,
+      batch,
+      gender,
+      subTeam,
+      achievements,
+      samples, // null or image URL
+      ques1,
+      ques2,
+      ques3,
+      ques4,
+      query
     });
 
-
-    res.json({ success: true, message: "Registration successfull!" });
+    res.json({ success: true, message: "Registration successful!" });
   } catch (error) {
     res.status(500).json({ message: "Error registering", error: error.message });
   }
-}
+};

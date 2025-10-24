@@ -30,7 +30,7 @@ export const AppProvider = ({ children }) => {
         }
     };
 
-    const getParticipantsMrMiss = async() => {
+    const getParticipantsMrMiss = async () => {
         try {
             const { data } = await axios.get('/api/registrations/count');
             data.success ? setRegMrMiss(data.count) : toast.error(data.message);
@@ -39,7 +39,7 @@ export const AppProvider = ({ children }) => {
         }
     }
 
-    const getParticipantsMM = async() => {
+    const getParticipantsMM = async () => {
         try {
             const { data } = await axios.get('/api/mmRegistrations/count');
             data.success ? setRegMM(data.count) : toast.error(data.message);
@@ -60,7 +60,13 @@ export const AppProvider = ({ children }) => {
     const fetchContent = async () => {
         try {
             const { data } = await axios.get('/api/content/all-content');
-            data.success ? setAllContent(data.content) : toast.error(data.message);
+
+            if (data.success) {
+                // Reverse the array before setting it
+                setAllContent([...data.content].reverse());
+            } else {
+                toast.error(data.message);
+            }
         } catch (error) {
             toast.error(error.message);
         }
@@ -85,13 +91,13 @@ export const AppProvider = ({ children }) => {
     };
 
     useEffect(() => {
-    console.log("Current token:", token); // Add this line
-    if (token) {
-        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-    } else {
-        delete axios.defaults.headers.common['Authorization'];
-    }
-}, [token]);
+        console.log("Current token:", token); // Add this line
+        if (token) {
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        } else {
+            delete axios.defaults.headers.common['Authorization'];
+        }
+    }, [token]);
 
     useEffect(() => {
         fetchEvents();

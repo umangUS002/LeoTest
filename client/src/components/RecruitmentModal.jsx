@@ -18,6 +18,7 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
     ques2: "",
     ques3: "",
     ques4: "",
+    query: ""
   });
 
   const [image, setImage] = useState(null);
@@ -44,7 +45,7 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
     setIsLoading(true);
 
     try {
-        const formData = new FormData();
+      const formData = new FormData();
       formData.append('recruit', JSON.stringify(recruit));  // ✅ correct object
       formData.append('image', image);
       const { data } = await axios.post(
@@ -69,6 +70,7 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
           ques2: "",
           ques3: "",
           ques4: "",
+          query: ""
         });
         setIsRegistered(true);
       } else {
@@ -93,12 +95,12 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
         </button>
 
         {/* Title */}
-        <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-2">
+        <h2 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-4 mt-5">
           Leo Club Recruitment 2025
         </h2>
 
         {/* Status */}
-        <span className="inline-block mb-6 text-sm px-3 py-1 rounded-full bg-green-500/20 text-green-400">
+        <span className="inline-block mb-10 md:text-center mb-6 text-sm px-3 py-1 rounded-full bg-green-500/20 text-green-400">
           Applications Open
         </span>
 
@@ -112,8 +114,8 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
             </p>
             <p className="text-slate-300">Join our community for updates:</p>
             <div className="flex flex-col gap-3">
-                <a href="https://chat.whatsapp.com/HKAHHMo74a3FN4fq0tB1Ij?mode=ems_copy_c" target="_blank" rel="noopener noreferrer" className="w-full rounded-lg bg-green-500/20 text-green-400 px-4 py-2 font-medium hover:bg-green-500/30 transition" > Leo'25 Recruitment Group </a>
-                <a href="https://www.instagram.com/leoclub_bitmesra?igsh=MTZ4enBodXQycjNwcA==" target="_blank" rel="noopener noreferrer" className="w-full rounded-lg bg-pink-500/20 text-pink-400 px-4 py-2 font-medium hover:bg-pink-500/30 transition" > Recruitment Updates on Instagram Page </a>
+              <a href="https://chat.whatsapp.com/K2glS4ioXd7BgcQ1dLvijH?mode=wwt" target="_blank" rel="noopener noreferrer" className="w-full rounded-lg bg-green-500/20 text-green-400 px-4 py-2 font-medium hover:bg-green-500/30 transition" > Leo'25 Recruitment Group </a>
+              <a href="https://www.instagram.com/leoclub_bitmesra?igsh=MTZ4enBodXQycjNwcA==" target="_blank" rel="noopener noreferrer" className="w-full rounded-lg bg-pink-500/20 text-pink-400 px-4 py-2 font-medium hover:bg-pink-500/30 transition" > Recruitment Updates on Instagram Page </a>
             </div>
           </div>
         ) : (
@@ -185,7 +187,7 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
                 htmlFor="achievements"
                 className="block text-sm font-medium text-slate-300 mb-1"
               >
-                Achievements (if any)
+                Achievements <span className="text-green-500">(optional)</span>
               </label>
               <textarea
                 id="achievements"
@@ -206,7 +208,7 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
                 htmlFor="samples"
                 className="block text-sm font-medium text-slate-300 mb-1"
               >
-                Upload Samples (links, drive, docs, etc.)
+                Upload Samples of your work (pdf,images) - <span className="text-green-500">optional</span>
               </label>
               <input
                 type="file"
@@ -225,6 +227,7 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
                 { id: "ques2", label: "Q2: Describe a situation where you worked in a team to achieve something. What was your role?", rows: 2 },
                 { id: "ques3", label: "Q3: How do you think you can contribute to the club’s social and cultural initiatives?", rows: 2 },
                 { id: "ques4", label: "Q4: Suggest one small initiative that the club can take to positively impact society/college.", rows: 2 },
+                { id: "query", label: "Any queries regarding the recruitment process: (optional)", rows: 2 },
               ].map((field) => (
                 <div key={field.id}>
                   <label
@@ -246,6 +249,14 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
                   />
                 </div>
               ))}
+            </div>
+
+            <div className="flex flex-col ">
+              <p className="text-slate-300">In case of any queries, contact:</p>
+              <div className="flex flex-col mt-2">
+                <p className="text-slate-300 text-sm">Umang : 7645878981</p>
+                <p className="text-slate-300 text-sm">Hera : 9162178573</p>
+              </div>
             </div>
 
             <button

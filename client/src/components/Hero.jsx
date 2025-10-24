@@ -225,7 +225,7 @@ const Hero = () => {
           onEnded={handleIntroEnd}
           className="absolute inset-0 w-full h-full object-cover z-[100] opacity-100 transition-opacity duration-1000"
         >
-          <source src={assets.intro_vid_mob} type="video/mp4" />
+          <source src={assets.site_vid_comp} type="video/mp4" />
         </video>
 
       )}

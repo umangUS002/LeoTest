@@ -3,6 +3,8 @@ import close_icon from './close_icon.svg'
 import menu_icon from './menu_icon.svg'
 import heroimage from './heroimage.png'
 import leologo from './Leologo.png'
+import Leo_logo_comp from './Leo_logo_comp.png'
+
 import eventposter from './eventposter.jpg'
 import gmail_logo from "./gmail_logo.svg";
 import facebook_logo from "./facebook_logo.svg";
@@ -23,6 +25,7 @@ import bg_video_2 from './bg_video_2.mp4'
 import intro_vid from './intro_vid.mp4'
 
 import intro_vid_mob from './intro_vid_mob.mp4'
+import site_vid_comp from './site_vid_comp.mp4'
 
 import bg_image from './bg_image.png'
 import img1 from './gallery/img1.jpg'
@@ -78,7 +81,9 @@ export const assets = {
     bg_video_2,
     intro_vid,
     bg_image,
-    intro_vid_mob
+    intro_vid_mob,
+    site_vid_comp,
+    Leo_logo_comp
 }
 
 export const menuLinks = [
@@ -136,12 +141,12 @@ export const eventsData = [
     {
         name: "Deepotsav",
         Month: "October",
-        Date: "14th October",
-        Venue: "NCC Ground",
+        Date: "12th October",
+        Venue: "IC Arena",
         type: 'Deepotsav',
         image: assets.event3,
-        description: "This 18th to 20th October, Leo Club BIT Mesra, brings you Deepotsav—a celebration like no other, where ancient roots blend with modern vibes. We're throwing it down for the biggest cultural showdown of the year, honoring India's legendary heroes, mythological icons, and the spirits that shaped our history.From epic performances to artistic flair, this is where the festive season comes alive. It’s not just a festival, it’s a movement—where the lights burn brighter, the beats hit harder, and the campus comes together to celebrate in style. Be there to witness tradition go full throttle!",
-        teamSize: "1"
+        description: "This 12th October, Leo Club BIT Mesra, brings you Deepotsav—a celebration like no other, where ancient roots blend with modern vibes. We're throwing it down for the biggest cultural showdown of the year, honoring India's legendary heroes, mythological icons, and the spirits that shaped our history.From epic performances to artistic flair, this is where the festive season comes alive. It’s not just a festival, it’s a movement—where the lights burn brighter, the beats hit harder, and the campus comes together to celebrate in style. Be there to witness tradition go full throttle!",
+        teamSize: "N.A"
     },
     {
         name: "Orphanage Visit",
