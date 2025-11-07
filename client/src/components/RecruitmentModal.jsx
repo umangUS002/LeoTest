@@ -208,7 +208,7 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
                 htmlFor="samples"
                 className="block text-sm font-medium text-slate-300 mb-1"
               >
-                Upload Samples of your work (pdf,images) - <span className="text-green-500">optional</span>
+                Upload Samples of your work (pdf,images upto 10MB) - <span className="text-green-500">optional</span>
               </label>
               <input
                 type="file"
