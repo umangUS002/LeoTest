@@ -20,6 +20,7 @@ export const AppProvider = ({ children }) => {
 
     const [regMM, setRegMM] = useState(0);
     const [regMrMiss, setRegMrMiss] = useState(0);
+    const [recCnt, setRecCnt] = useState(0);
 
     const setToken = (newToken) => {
         setTokenState(newToken);
@@ -43,6 +44,15 @@ export const AppProvider = ({ children }) => {
         try {
             const { data } = await axios.get('/api/mmRegistrations/count');
             data.success ? setRegMM(data.count) : toast.error(data.message);
+        } catch (error) {
+            toast.error(error.message);
+        }
+    }
+
+    const getRecruitmentCnt = async () => {
+        try {
+            const { data } = await axios.get('/api/registrations/countRecruitment');
+            data.success ? setRecCnt(data.count) : toast.error(data.message);
         } catch (error) {
             toast.error(error.message);
         }
@@ -106,6 +116,7 @@ export const AppProvider = ({ children }) => {
         fetchResults();
         getParticipantsMrMiss();
         getParticipantsMM();
+        getRecruitmentCnt();
     }, []);
 
     const value = {
@@ -121,7 +132,8 @@ export const AppProvider = ({ children }) => {
         fetchContent,
         allContestants,
         contestantResults,
-        regMrMiss, regMM
+        regMrMiss, regMM,
+        recCnt
     };
 
     return (

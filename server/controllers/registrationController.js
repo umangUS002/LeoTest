@@ -62,6 +62,15 @@ export const getRegistrations = async (req, res) => {
   }
 };
 
+export const getRecruitment = async (req, res) => {
+  try {
+    const count = await Recruitment.countDocuments();
+    res.json({ success: true, count });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching recruitments." });
+  }
+};
+
 export const recruitmentRegistration = async (req, res) => {
   try {
     const {
