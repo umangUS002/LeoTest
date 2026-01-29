@@ -1,6 +1,7 @@
 import Registration from "../models/Registration.js";
 import fs from "fs";
 import imagekit from "../configs/imageKit.js";
+import Recruitment from "../models/Recruitment.js";
 
 export const registerEvent = async (req, res) => {
   try {
@@ -58,5 +59,103 @@ export const getRegistrations = async (req, res) => {
     res.json({ success: true, count });
   } catch (error) {
     res.status(500).json({ message: "Error fetching registrations" });
+  }
+};
+
+export const getRecruitment = async (req, res) => {
+  try {
+    const count = await Recruitment.countDocuments();
+    res.json({ success: true, count });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching recruitments." });
+  }
+};
+
+export const recruitmentRegistration = async (req, res) => {
+  try {
+    const {
+      name,
+      roll,
+      email,
+      phone,
+      branch,
+      batch,
+      gender,
+      subTeam,
+      achievements,
+      ques1,
+      ques2,
+      ques3,
+      ques4,
+      query
+    } = JSON.parse(req.body.recruit);
+
+    const imageFile = req.file;
+
+    // Basic field validation
+    if (
+      !name ||
+      !email ||
+      !roll ||
+      !phone ||
+      !branch ||
+      !batch ||
+      !gender ||
+      !subTeam ||
+      !ques1 ||
+      !ques2 ||
+      !ques3 ||
+      !ques4
+    ) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
+
+    let samples = null; // default if no image uploaded
+
+    // ✅ Upload image only if file is provided
+    if (imageFile) {
+      const fileBuffer = imageFile.buffer;
+
+      const response = await imagekit.upload({
+        file: fileBuffer,
+        fileName: imageFile.originalname,
+        folder: "/Recruitment"
+      });
+
+      // Optimize uploaded image
+      const optimizedImageUrl = imagekit.url({
+        path: response.filePath,
+        transformation: [
+          { quality: "auto" },
+          { format: "webp" },
+          { width: "1280" }
+        ]
+      });
+
+      samples = optimizedImageUrl;
+    }
+
+    // Create recruitment record
+    await Recruitment.create({
+      name,
+      roll,
+      email,
+      phone,
+      branch,
+      batch,
+      gender,
+      subTeam,
+      achievements,
+      samples, // null or image URL
+      ques1,
+      ques2,
+      ques3,
+      ques4,
+      query
+    });
+
+    res.json({ success: true, message: "Registration successful!" });
+  } catch (error) {
+    res.status(500).json({ message: "Error registering", error: error.message });
   }
 };

@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 
 function ManageEvents() {
 
-  const { events, axios, fetchEvents, regMM, regMrMiss } = useContext(AppContext)
+  const { events, axios, fetchEvents, regMM, regMrMiss, recCnt } = useContext(AppContext)
 
   const [allEvents, setEvents] = useState([])
 
@@ -60,18 +60,26 @@ function ManageEvents() {
       <div className="px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Murder Mystery */}
         <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all">
-          <h3 className="text-lg font-semibold text-gray-700">Murder Mystery</h3>
+          <h3 className="text-lg font-semibold text-gray-700">Murder Mystery 2025</h3>
           <p className="mt-2 text-3xl font-bold text-indigo-600">{regMM}</p>
           <span className="mt-1 text-sm text-gray-500">Registrations</span>
         </div>
 
         {/* Mr. & Miss Pantheon */}
         <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all">
-          <h3 className="text-lg font-semibold text-gray-700">Mr. &amp; Miss Pantheon</h3>
+          <h3 className="text-lg font-semibold text-gray-700">Mr. &amp; Miss Pantheon 2025</h3>
           <p className="mt-2 text-3xl font-bold text-pink-600">{regMrMiss}</p>
           <span className="mt-1 text-sm text-gray-500">Registrations</span>
         </div>
+
+        {/* Recruitment Count */}
+        <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all">
+          <h3 className="text-lg font-semibold text-gray-700">K25 Recruitment</h3>
+          <p className="mt-2 text-3xl font-bold text-pink-600">{recCnt}</p>
+          <span className="mt-1 text-sm text-gray-500">Registrations</span>
+        </div>
       </div>
+      
 
       <Title title="Manage Events" subTitle="Delete or change the status of the event." />
 

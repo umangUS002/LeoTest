@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { faculty, seniorExecutives, juniorExecutives } from "../assets/teamData";
 import bgg from "../assets/icons/bgg.jpg";
+import RecruitmentModal from "../components/RecruitmentModal";
 
 // Card hover + fade-in variant
 const cardVariant = {
@@ -72,6 +73,9 @@ const TeamSection = ({ title, members, isFaculty = false }) => (
 );
 
 const Team = () => {
+
+  const [recruitmentModalOpen, setRecruitmentModalOpen] = useState(false);
+  
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -106,12 +110,24 @@ const Team = () => {
               The passionate individuals driving our club forward with dedication
               and vision.
             </motion.p>
+
           </div>
         </div>
       </section>
 
+      <RecruitmentModal
+        recruitmentModal={recruitmentModalOpen}
+        setRecruitmentModal={setRecruitmentModalOpen}
+      />
+
       {/* Team Sections */}
       <div className="pt-12 pb-16 px-4">
+
+      {/* <section className="relative sm:mt-10 sm:max-w-[80%] sm:mx-[10%] rounded-xl flex items-center justify-center min-h-[60vh] bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-[#3ABEFF]/30 blur-3xl"></div>
+      <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-[#5F85FF]/20 blur-3xl"></div>
+
         <TeamSection title="Faculty Co-ordinator" members={faculty} isFaculty />
         <TeamSection title="Senior Executives" members={seniorExecutives} />
         <TeamSection title="Junior Executives" members={juniorExecutives} />

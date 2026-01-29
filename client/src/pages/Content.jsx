@@ -110,8 +110,8 @@ function Content() {
                                 transition={{ duration: 0.6, delay: 0.2 }}
                                 key={index} className="bg-white/10 p-4 max-sm:p-2 rounded-lg shadow-md text-white transform transition duration-300 hover:scale-105">
                                 <img src={event.image} alt={event.name} className='w-full h-30 md:h-40 object-cover rounded-md mb-2' />
-                                <h2 className='text-lg font-bold'>{event.name}</h2>
-                                <p className='text-sm mb-1 mt-2'>{event.description.split(" ").slice(0, 20).join(" ") + "..."}</p>
+                                <h2 className='text-lg font-bold'>{event.title}</h2>
+                                <p className='text-sm mb-1 mt-2'>{event.description.split(" ").slice(0, 15).join(" ") + "..."}</p>
                                 <p className='text-sm mt-2 text-gray-300'>Work Credit - {event.workCredit}</p>
                                 <div className='text-xs mt-0 flex justify-between mb-2'>
                                     <p className='text-gray-300'>{event.date}</p>
