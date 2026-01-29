@@ -16,6 +16,13 @@ await connectDB()
 
 // Middlewares
 app.use(cors())
+// app.use(
+//   cors({
+//     origin: "http://localhost:5174",
+//     credentials: true,
+//   })
+// );
+
 app.use(express.json())
 
 // Routes

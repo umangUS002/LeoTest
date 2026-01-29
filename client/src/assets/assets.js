@@ -2,7 +2,7 @@ import Logo from "./Logo.png";
 import close_icon from './close_icon.svg'
 import menu_icon from './menu_icon.svg'
 import heroimage from './heroimage.png'
-import leologo from './Leologo.png'
+//import leologo from './Leologo.png'
 import eventposter from './eventposter.jpg'
 import gmail_logo from "./gmail_logo.svg";
 import facebook_logo from "./facebook_logo.svg";
@@ -17,12 +17,12 @@ import delete_icon from './delete_icon.svg'
 import cross_icon from './cross_icon.svg'
 import tick_icon from './tick_icon.svg'
 import bg from './bg.jpg'
-import bg_video from './bg_video.mp4'
+//import bg_video from './bg_video.mp4'
 import test_mask from './test_mask.svg?url'
 import bg_video_2 from './bg_video_2.mp4'
-import intro_vid from './intro_vid.mp4'
+//import intro_vid from './intro_vid.mp4'
 
-import intro_vid_mob from './intro_vid_mob.mp4'
+//import intro_vid_mob from './intro_vid_mob.mp4'
 
 import bg_image from './bg_image.png'
 import img1 from './gallery/img1.jpg'
@@ -58,7 +58,7 @@ export const assets = {
     close_icon,
     menu_icon,
     heroimage,
-    leologo,
+    leologo : "https://ik.imagekit.io/umang1gb/LeoClubSiteContent/Leologo.png",
     eventposter,
     gmail_logo,
     facebook_logo,
@@ -73,12 +73,12 @@ export const assets = {
     cross_icon,
     tick_icon,
     bg,
-    bg_video,
+    bg_video : "https://ik.imagekit.io/umang1gb/LeoClubSiteContent/bg_video.mp4",
     test_mask,
     bg_video_2,
-    intro_vid,
+    intro_vid : "",
     bg_image,
-    intro_vid_mob
+    intro_vid_mob : "https://ik.imagekit.io/umang1gb/LeoClubSiteContent/intro_vid.mp4"
 }
 
 export const menuLinks = [
