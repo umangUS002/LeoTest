@@ -126,7 +126,7 @@ const Team = () => {
       {/* <section className="relative sm:mt-10 sm:max-w-[80%] sm:mx-[10%] rounded-xl flex items-center justify-center min-h-[60vh] bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white overflow-hidden">
       {/* Background glow */}
       <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-[#3ABEFF]/30 blur-3xl"></div>
-      <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-[#5F85FF]/20 blur-3xl"></div>
+      {/* <div className="absolute -bottom-40 right-1 w-96 h-96 rounded-full bg-[#5F85FF]/20 blur-3xl"></div> */}
 
         <TeamSection title="Faculty Co-ordinator" members={faculty} isFaculty />
         <TeamSection title="Senior Executives" members={seniorExecutives} />
