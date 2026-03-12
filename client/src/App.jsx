@@ -19,6 +19,11 @@ import AddContent from './pages/admin/AddContent'
 import VotingPage from './pages/VotingPage'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import {Analytics} from '@vercel/analytics/react'
+import JoinPage from './pages/bitotsav26Test/JoinPage'
+import WaitingPage from './pages/bitotsav26Test/WaitingPage'
+import ResultPage from './pages/bitotsav26Test/ResultPage'
+import AdminDashboardTest from './pages/bitotsav26Test/AdminDashboardTest'
+import TestPageBit from './pages/bitotsav26Test/TestPage'
 
 function App() {
 
@@ -37,6 +42,12 @@ function App() {
         <Route path='/team' element={<Team />} />
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/content' element={<Content />} />
+
+        <Route path="/round1" element={<JoinPage/>}/>
+        <Route path="/test" element={<TestPageBit/>}/>
+        <Route path="/waiting" element={<WaitingPage/>}/>
+        <Route path="/result" element={<ResultPage/>}/>
+        <Route path="/testAdmin" element={<AdminDashboardTest/>}/>
 
         {/* <Route path='/votingPage' element={<VotingPage />} />
         <Route path='/votingResults' element={<AdminDashboard />} /> */}

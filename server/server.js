@@ -8,6 +8,8 @@ import contentRouter from './routes/contentRoutes.js'
 import router from './routes/voteRoutes.js'
 import regRouter from './routes/regRoutes.js'
 import mmRegRouter from './routes/mmRegRoutes.js'
+import testRouter from './routes/testRoutes.js'
+import testAdminRouter from './routes/testAdminRoutes.js'
 
 const app = express()
 
@@ -30,6 +32,9 @@ app.get('/',(req,res)=> res.send("API is working"));
 app.use('/api/admin', adminRouter)
 app.use('/api/event', eventRouter)
 app.use('/api/content', contentRouter)
+
+app.use('/api/bitotsavTest', testRouter)
+app.use('/api/bitotsavAdmin', testAdminRouter)
 
 app.use("/api/contestants", router)
 app.use("/api/registrations", regRouter);

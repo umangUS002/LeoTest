@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Events() {
   const [event, setEvent] = useState([]);
-  const [filter, setFilter] = useState('Pantheon');
+  const [filter, setFilter] = useState('Bitotsav');
   const [modalOpen, setModalOpen] = useState(false);
   const [mmmodalOpen, setmmModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -83,7 +83,7 @@ function Events() {
                   {event.description}
                 </p>
                 <p className="text-lg max-sm:text-sm mb-1 mt-2 max-sm:px-1 md:hidden">
-                  {event.description.split(" ").slice(0, 15).join(" ")}
+                  {event.description.split(" ").slice(0, 25).join(" ")}
                 </p>
                 <div className="text-lg max-sm:text-sm mt-3 flex -pb-100 justify-between max-sm:px-1">
                   <p className="text-gray-300">Venue : {event.Venue}</p>
@@ -116,15 +116,25 @@ function Events() {
 
                 {event.status === 'Partially Completed' ? (
                   <div>
-                    <div className="cursor-pointer max-sm:mt-5 bg-red-500/10 text-red-600 font-semibold px-4 py-2 rounded-lg border border-red-500/20 text-center">
-                      Completed
+                    <div className='flex gap-5'>
+                      <button onClick={() => navigate('')} className="w-full cursor-pointer max-sm:mt-3 mt-2 bg-gradient-to-r from-green-600 to-green-400 text-white font-semibold px-4 py-2 rounded-lg border border-green-500/20 text-center">
+                        Upcoming
+                      </button>
+                      <button onClick={() => navigate('/round1')} className="w-full cursor-pointer max-sm:mt-3 mt-2 bg-gradient-to-r from-purple-600 to-purple-400 text-white font-semibold px-4 py-2 rounded-lg border border-green-500/20 text-center">
+                        Compatability Test
+                      </button>
                     </div>
+
+                    {/* <div className="cursor-pointer max-sm:mt-5 bg-red-500/10 text-red-600 font-semibold px-4 py-2 rounded-lg border border-red-500/20 text-center">
+                      Completed
+                    </div> */}
                     {/* <button onClick={() => navigate('/votingPage')} className="w-full cursor-pointer max-sm:mt-3 mt-2 bg-green-500/10 text-green-600 font-semibold px-4 py-2 rounded-lg border border-green-500/20 text-center">
                       Voting Page
                     </button>
                     <button onClick={() => navigate('/votingResults')} className="w-full cursor-pointer max-sm:mt-3 mt-2 bg-green-500/10 text-green-600 font-semibold px-4 py-2 rounded-lg border border-green-500/20 text-center">
                       Voting Results
                     </button> */}
+
                   </div>
 
                 ) : null}

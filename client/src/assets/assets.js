@@ -111,7 +111,7 @@ export const eventsData = [
         image: assets.mrp,
         description: `The lights rise, the music builds, and the runway awakens. Mr. & Miss Pantheon ’25  presented by the Leo Club is not just a stage — it’s where elegance meets ambition, where style becomes story, and where presence turns into power. This year’s theme, “Threads of Time,” celebrates more than fashion. It is about weaving your journey into every detail, letting the past and the future meet in this defining moment.It is glamour, yes — but it is also legacy. Because crowns may shine for a night, but the impact of this stage lasts far beyond it. So when the spotlight finds you… will you simply walk, or will you leave a mark time cannot forget?`,
         teamSize: "1",
-        status: "Partially Completed",
+        status: "Completed",
     },
     {
         name: "Takeshi Castle",
@@ -124,14 +124,15 @@ export const eventsData = [
         teamSize: "4"
     },
     {
-        name: "Mismatched",
+        name: "How I met your __ ?",
         Month: "February",
-        Date: "14th February",
+        Date: "20th March",
         Venue: "Room 236",
         type: 'Bitotsav',
         image: assets.event1,
         description: "Mismatched is here to put that to the test in the most unexpected ways! From trying to read each other’s minds in the Telepathy Test, to awkwardly sketching on each other's backs in the Draw Relay, and finally tackling the chaotic Synergy Quest, this event is all about teamwork, trust, and a whole lot of laughter. It’s not about getting it perfect—it’s about embracing the confusion, miscommunication, and the absolute hilarity that comes with it!",
-        teamSize: "3"
+        teamSize: "2",
+        status: "Partially Completed"
     },
     {
         name: "Deepotsav",
