@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Events() {
   const [event, setEvent] = useState([]);
-  const [filter, setFilter] = useState('Pantheon');
+  const [filter, setFilter] = useState('Bitotsav');
   const [modalOpen, setModalOpen] = useState(false);
   const [mmmodalOpen, setmmModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -90,19 +90,27 @@ function Events() {
                   <span className="text-green-400">Team Size : {event.teamSize}</span>
                 </div>
                 {event.status === 'Upcoming' ? (
+                  // <button
+                  //   onClick={() => {
+                  //     setSelectedEvent(event);
+                  //     if (
+                  //       event.name.toLowerCase().includes("murder mystery") ||
+                  //       event.name.toLowerCase().includes("mr & miss pantheon")
+                  //     ) {
+                  //       setmmModalOpen(true);
+                  //     } else {
+                  //       setModalOpen(true);
+                  //     }
+                  //   }}
+                  //   className=" -mt-10 cursor-pointer mt-4 w-full bg-gradient-to-r from-green-600 to-green-400 text-white py-2 px-4 rounded-md hover:from-green-400 hover:to-green-600 transition duration-300 font-semibold"
+                  // >
+                  //   Register
+                  // </button>
                   <button
                     onClick={() => {
-                      setSelectedEvent(event);
-                      if (
-                        event.name.toLowerCase().includes("murder mystery") ||
-                        event.name.toLowerCase().includes("mr & miss pantheon")
-                      ) {
-                        setmmModalOpen(true);
-                      } else {
-                        setModalOpen(true);
-                      }
+                      window.open(event.link, "_blank");
                     }}
-                    className=" -mt-10 cursor-pointer mt-4 w-full bg-gradient-to-r from-green-600 to-green-400 text-white py-2 px-4 rounded-md hover:from-green-400 hover:to-green-600 transition duration-300 font-semibold"
+                    className="-mt-10 cursor-pointer mt-4 w-full bg-gradient-to-r from-green-600 to-green-400 text-white py-2 px-4 rounded-md hover:from-green-400 hover:to-green-600 transition duration-300 font-semibold"
                   >
                     Register
                   </button>
