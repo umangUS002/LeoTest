@@ -1,8 +1,9 @@
 import Team from "../models/Team.js"
 
-export const getAllTeams = async (req,res)=>{
+export const getAllTeams = async (req, res) => {
 
-  const teams = await Team.find().sort({score:-1})
+  const teams = await Team.find()
+    .sort({ score: -1, time: 1 })
 
   return res.json(teams)
 

@@ -47,7 +47,6 @@ function App() {
         <Route path="/test" element={<TestPageBit/>}/>
         <Route path="/waiting" element={<WaitingPage/>}/>
         <Route path="/result" element={<ResultPage/>}/>
-        <Route path="/testAdmin" element={<AdminDashboardTest/>}/>
 
         {/* <Route path='/votingPage' element={<VotingPage />} />
         <Route path='/votingResults' element={<AdminDashboard />} /> */}
@@ -58,6 +57,7 @@ function App() {
             <Route path='add-event' element={<AddEvent/>} />
             <Route path='add-content' element={<AddContent/>} />
             <Route path='manage-content' element={<ManageContent/>} />
+            <Route path="testAdmin" element={<AdminDashboardTest/>}/>
         </Route>      
       </Routes>
 
