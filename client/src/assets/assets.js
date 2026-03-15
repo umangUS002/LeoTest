@@ -38,6 +38,9 @@ import mm from './Events/mm.png'
 import mrp from './Events/mrp.png'
 import orp from './Events/orp.png'
 
+import GTA from './Events/GTA.jpeg'
+import howimet from './Events/howimet.png'
+
 import post1 from './Posts/1.png'
 import post2 from './Posts/2.png'
 import post3 from './Posts/3.png'
@@ -78,7 +81,9 @@ export const assets = {
     bg_video_2,
     intro_vid : "https://ik.imagekit.io/umang1gb/LeoClubSiteContent/intro_vid.mp4?updatedAt=1769696783906",
     bg_image,
-    intro_vid_mob : "https://ik.imagekit.io/umang1gb/LeoClubSiteContent/intro_vid.mp4?updatedAt=1769696783906"
+    intro_vid_mob : "https://ik.imagekit.io/umang1gb/LeoClubSiteContent/intro_vid.mp4?updatedAt=1769696783906",
+    GTA,
+    howimet
 }
 
 export const menuLinks = [
