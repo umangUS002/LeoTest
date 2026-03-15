@@ -13,9 +13,7 @@ const AdminDashboardTest = () => {
 
     const load = async () => {
 
-      const res = await axios.get(
-        "http://localhost:3000/api/bitotsavAdmin/teams"
-      )
+      const res = await axios.get('/api/bitotsavAdmin/teams')
 
       setTeams(res.data)
 
@@ -30,7 +28,7 @@ const AdminDashboardTest = () => {
     const load = async () => {
 
       const res = await axios.get(
-        "http://localhost:3000/api/bitotsavAdmin/stats"
+        '/api/bitotsavAdmin/stats'
       )
 
       setTotalTeams(res.data.totalTeams)

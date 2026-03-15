@@ -81,7 +81,7 @@ const TestPageBit = () => {
     }))
 
     const res = await axios.post(
-      "http://localhost:3000/api/bitotsavTest/submit",
+      '/api/bitotsavTest/submit',
       {
         teamId,
         answers: formatted

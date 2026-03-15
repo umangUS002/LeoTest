@@ -14,7 +14,7 @@ const WaitingPage = () => {
     const interval = setInterval(async () => {
 
       const res = await axios.get(
-        `http://localhost:5000/api/result/${teamId}`
+        `/api/result/${teamId}`
       )
 
       if (res.data.status === "completed") {
