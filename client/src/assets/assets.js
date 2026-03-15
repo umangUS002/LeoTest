@@ -139,7 +139,7 @@ export const eventsData = [
         image: assets.howimet,
         description: "How Met Your is a multi-round pair event where participants are tested on communication, puzzle-solving, sensory description, and song-based coordination. This event tests communication, teamwork, and problem-solving skills through multiple exciting rounds. Participants can join individually or as a duo and will face challenges like rapid-fire questions, puzzle solving, object-guessing tasks, and a fun music identification round. Each stage evaluates coordination and quick thinking between partners. Only the best teams will advance to the final round and claim victory.",
         teamSize: "2",
-        status: "Upcoming",
+        status: "Partially Completed",
         link: "https://bitotsav.bitmesra.ac.in/events/informal-how-met-your"
     },
     {
