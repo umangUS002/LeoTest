@@ -114,25 +114,28 @@ export const eventsData = [
         status: "Completed",
     },
     {
-        name: "Takeshi Castle",
-        Month: "February",
-        Date: "12th February",
-        Venue: "Shorbagh",
+        name: "GTA : Leo Santos",
+        Month: "March",
+        Date: "20th March",
+        Venue: "Shorbagh - 2",
         type: 'Bitotsav',
-        image: assets.event2,
-        description: "Get ready for a whirlwind of unpredictable challenges, wild wipeouts, and non-stop laughter! From crashing through mystery doors to scrambling into shape-based alliances, racing on skateboards, and navigating blindfolded mazes—every round is a test of wit, speed, and sheer luck. Will you make it to the final showdown, or will the obstacles have the last laugh?",
-        teamSize: "4"
+        image: assets.GTA,
+        description: "GTA: LEO Santos is an action-packed, GTA-inspired event where teams of two compete through multiple strategic rounds. Players must complete missions like clue hunting, weapon collection, territory control, and quick reaction challenges. Teams sabotage rivals and gather resources to advance through the rounds. The final challenge is an intense RC car race, where the best crew claims control of LEO Santos. The final round brings pure adrenaline as the remaining teams compete in an RC car race through a GTA-themed arena, battling for the ultimate victory. Only the smartest crews will survive the chaos, control the streets, and become the true rulers of LEO Santos.",
+        teamSize: "4",
+        status: "Upcoming",
+        link: "https://bitotsav.bitmesra.ac.in/events/formal-gta-leo-santos"
     },
     {
-        name: "How I met your __ ?",
-        Month: "February",
-        Date: "20th March",
-        Venue: "Room 236",
+        name: "How I Met Your __ ?",
+        Month: "March",
+        Date: "21st March",
+        Venue: "Room 236 - 231",
         type: 'Bitotsav',
-        image: assets.event1,
-        description: "Mismatched is here to put that to the test in the most unexpected ways! From trying to read each other’s minds in the Telepathy Test, to awkwardly sketching on each other's backs in the Draw Relay, and finally tackling the chaotic Synergy Quest, this event is all about teamwork, trust, and a whole lot of laughter. It’s not about getting it perfect—it’s about embracing the confusion, miscommunication, and the absolute hilarity that comes with it!",
+        image: assets.howimet,
+        description: "How Met Your is a multi-round pair event where participants are tested on communication, puzzle-solving, sensory description, and song-based coordination. This event tests communication, teamwork, and problem-solving skills through multiple exciting rounds. Participants can join individually or as a duo and will face challenges like rapid-fire questions, puzzle solving, object-guessing tasks, and a fun music identification round. Each stage evaluates coordination and quick thinking between partners. Only the best teams will advance to the final round and claim victory.",
         teamSize: "2",
-        status: "Partially Completed"
+        status: "Upcoming",
+        link: "https://bitotsav.bitmesra.ac.in/events/informal-how-met-your"
     },
     {
         name: "Deepotsav",
