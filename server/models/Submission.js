@@ -4,6 +4,7 @@ const submissionSchema = new mongoose.Schema({
 
   teamId: String,
   userId: String,
+  ip: String,
   answers: [
     {
       questionId: Number,

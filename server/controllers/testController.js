@@ -8,6 +8,21 @@ export const submitAnswers = async (req, res) => {
 
     const { teamId, answers } = req.body;
 
+    const ip =
+      req.headers["x-forwarded-for"]?.split(",")[0] ||
+      req.socket?.remoteAddress ||
+      req.ip;
+
+    console.log("User IP:", ip);
+
+    const existing = await Submission.findOne({ teamId, ip });
+
+    if (existing) {
+      return res.status(400).json({
+        message: "You have already submitted from this device"
+      });
+    }
+
     // find all submissions for this team
     const submissions = await Submission.find({ teamId });
 
@@ -21,7 +36,8 @@ export const submitAnswers = async (req, res) => {
     // save new submission
     await Submission.create({
       teamId,
-      answers
+      answers,
+      ip
     });
 
     // fetch again after saving

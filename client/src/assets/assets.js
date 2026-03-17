@@ -95,6 +95,63 @@ export const menuLinks = [
     { name: "Our Team", path: "/team" },
 ]
 
+export const questions = [
+
+  {
+    id: 1,
+    text: "Preferred Work Style",
+    options: [
+      "Fast execution",
+      "Careful planning",
+      "Collaboration",
+      "Independent work"
+    ]
+  },
+
+  {
+    id: 2,
+    text: "Decision Making",
+    options: [
+      "Data driven",
+      "Instinct",
+      "Team discussion",
+      "Leader decides"
+    ]
+  },
+
+  {
+    id: 3,
+    text: "Decision Making",
+    options: [
+      "Data driven",
+      "Instinct",
+      "Team discussion",
+      "Leader decides"
+    ]
+  },
+  {
+    id: 4,
+    text: "Decision Making",
+    options: [
+      "Data driven",
+      "Instinct",
+      "Team discussion",
+      "Leader decides"
+    ]
+  },
+  {
+    id: 5,
+    text: "Decision Making",
+    options: [
+      "Data driven",
+      "Instinct",
+      "Team discussion",
+      "Leader decides"
+    ]
+  }
+
+]
+
 export const eventsData = [
     {
         name: "Murder Mystery",

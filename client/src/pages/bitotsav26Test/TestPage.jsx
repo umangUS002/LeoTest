@@ -2,63 +2,8 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"
 import QuestionCard from "../../components/bitotsav26Test/QuestionCard"
-
-const questions = [
-
-  {
-    id: 1,
-    text: "Preferred Work Style",
-    options: [
-      "Fast execution",
-      "Careful planning",
-      "Collaboration",
-      "Independent work"
-    ]
-  },
-
-  {
-    id: 2,
-    text: "Decision Making",
-    options: [
-      "Data driven",
-      "Instinct",
-      "Team discussion",
-      "Leader decides"
-    ]
-  },
-
-  {
-    id: 3,
-    text: "Decision Making",
-    options: [
-      "Data driven",
-      "Instinct",
-      "Team discussion",
-      "Leader decides"
-    ]
-  },
-  {
-    id: 4,
-    text: "Decision Making",
-    options: [
-      "Data driven",
-      "Instinct",
-      "Team discussion",
-      "Leader decides"
-    ]
-  },
-  {
-    id: 5,
-    text: "Decision Making",
-    options: [
-      "Data driven",
-      "Instinct",
-      "Team discussion",
-      "Leader decides"
-    ]
-  }
-
-]
+import { questions } from "../../assets/assets"
+import { toast } from "react-toastify";
 
 const TestPageBit = () => {
 
@@ -72,28 +17,37 @@ const TestPageBit = () => {
   )
 
   const submit = async () => {
+    try {
+      const formatted = answers.map((rank, i) => ({
 
-    const formatted = answers.map((rank, i) => ({
+        questionId: questions[i].id,
+        ranking: rank
 
-      questionId: questions[i].id,
-      ranking: rank
+      }))
 
-    }))
+      const res = await axios.post(
+        '/api/bitotsavTest/submit',
+        {
+          teamId,
+          answers: formatted
+        }
+      )
 
-    const res = await axios.post(
-      '/api/bitotsavTest/submit',
-      {
-        teamId,
-        answers: formatted
-      }
-    )
+      if (res.data.status === "waiting")
+        navigate("/waiting", { state: { teamId } })
 
-    if (res.data.status === "waiting")
-      navigate("/waiting", { state: { teamId } })
+      if (res.data.status === "completed")
+        navigate("/result", { state: { teamId } })
+    } catch (error) {
+      console.log(err); // debug
 
-    if (res.data.status === "completed")
-      navigate("/result", { state: { teamId } })
+      const message =
+        err?.response?.data?.message ||
+        err?.message ||
+        "Something went wrong";
 
+      toast.error(message);
+    }
   }
 
   return (
