@@ -86,6 +86,7 @@ const AdminDashboardTest = () => {
                 <tr className="text-gray-300 text-center">
 
                   <th className="py-3 px-4">Team ID</th>
+                  <th className="py-3 px-4">Team Name</th>                 
                   <th className="py-3 px-4">Status</th>
                   <th className="py-3 px-4">Score</th>
 
@@ -104,6 +105,10 @@ const AdminDashboardTest = () => {
 
                     <td className="py-3 px-4 text-white font-medium">
                       {team.teamId}
+                    </td>
+
+                    <td className="py-3 px-4 text-white font-medium">
+                      {team.teamName}
                     </td>
 
                     <td className="py-3 px-4">

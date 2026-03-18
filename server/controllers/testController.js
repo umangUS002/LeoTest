@@ -6,7 +6,7 @@ export const submitAnswers = async (req, res) => {
 
   try {
 
-    const { teamId, answers } = req.body;
+    const { teamId, answers, teamName } = req.body;
 
     const ip =
       req.headers["x-forwarded-for"]?.split(",")[0] ||
@@ -37,7 +37,8 @@ export const submitAnswers = async (req, res) => {
     await Submission.create({
       teamId,
       answers,
-      ip
+      ip,
+      teamName
     });
 
     // fetch again after saving
@@ -64,8 +65,12 @@ export const submitAnswers = async (req, res) => {
 
       await Team.findOneAndUpdate(
         { teamId },
-        { completed: true, score: finalScore },
-        { upsert: true }
+        {
+          teamName,
+          completed: true,
+          score: finalScore
+        },
+        { upsert: true, new: true }
       );
 
       return res.json({

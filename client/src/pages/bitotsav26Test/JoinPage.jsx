@@ -5,7 +5,7 @@ const JoinPage = () => {
 
   const [teamId, setTeamId] = useState("")
   const [teamName, setTeamName] = useState("")
-  const [participateName, setParticipateName] = useState("")
+  //const [participateName, setParticipateName] = useState("")
 
   const navigate = useNavigate()
 
@@ -14,7 +14,7 @@ const JoinPage = () => {
     if (!teamId) return
 
     navigate("/test", {
-      state: { teamId }
+      state: { teamId, teamName }
     })
   }
 
@@ -39,13 +39,14 @@ const JoinPage = () => {
           className="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
         />
         
-        {/* <input
-          placeholder="Enter Team ID"
+        <input
+          placeholder="Enter Team Name"
           value={teamName}
           onChange={(e) => setTeamName(e.target.value)}
-          className="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+          className="w-full px-4 py-3 mt-2 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
         />
-        <input
+
+        {/* <input
           placeholder="Enter Team ID"
           value={participateName}
           onChange={(e) => setParticipateName(e.target.value)}

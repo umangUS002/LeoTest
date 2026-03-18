@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar"
 const ResultPage = () => {
 
   const location = useLocation()
-  const { teamId } = location.state
+  const { teamId, teamName } = location.state
 
   return (
 
@@ -33,6 +33,14 @@ const ResultPage = () => {
 
             <p className="text-lg font-semibold text-white">
               {teamId}
+            </p>
+
+            <p className="text-gray-400 mt-1 text-sm">
+              Team Name
+            </p>
+
+            <p className="text-lg font-semibold text-white">
+              {teamName}
             </p>
 
           </div>

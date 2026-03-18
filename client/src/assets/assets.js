@@ -99,59 +99,143 @@ export const questions = [
 
   {
     id: 1,
-    text: "Preferred Work Style",
-    options: [
-      "Fast execution",
-      "Careful planning",
-      "Collaboration",
-      "Independent work"
-    ]
+    text: "Rank these Bollywood genres (1 = most preferred)",
+    options: ["Comedy", "Romance", "Action", "Thriller"]
   },
 
   {
     id: 2,
-    text: "Decision Making",
+    text: "Rank the character types you relate to",
     options: [
-      "Data driven",
-      "Instinct",
-      "Team discussion",
-      "Leader decides"
+      "Rancho (dreamer)",
+      "Bunny (free soul)",
+      "Kabir Singh (rebel like)",
+      "Raj (lover)"
     ]
   },
 
   {
     id: 3,
-    text: "Decision Making",
+    text: "Rank your preferred movie climaxes",
     options: [
-      "Data driven",
-      "Instinct",
-      "Team discussion",
-      "Leader decides"
+      "Emotional reunion",
+      "Big action fight",
+      "Mind blowing twist",
+      "Open ending"
     ]
   },
+
   {
     id: 4,
-    text: "Decision Making",
+    text: "Rank your favourite Bollywood eras",
     options: [
-      "Data driven",
-      "Instinct",
-      "Team discussion",
-      "Leader decides"
+      "90s classic",
+      "Early 2000s",
+      "2000s modern era",
+      "Latest trending movies"
     ]
   },
+
   {
     id: 5,
-    text: "Decision Making",
+    text: "Rank your comfort food choices",
     options: [
-      "Data driven",
-      "Instinct",
-      "Team discussion",
-      "Leader decides"
+      "Home cooked",
+      "Street food",
+      "Desserts",
+      "5 star meal"
+    ]
+  },
+
+  {
+    id: 6,
+    text: "Rank your food preferences",
+    options: [
+      "Spicy",
+      "Sweet",
+      "Balanced",
+      "Light food"
+    ]
+  },
+
+  {
+    id: 7,
+    text: "Rank your outing preferences",
+    options: [
+      "Trying new places",
+      "Budget friendly",
+      "Going to favourite spot",
+      "Luxury dining"
+    ]
+  },
+
+  {
+    id: 8,
+    text: "Rank your beverage choices",
+    options: [
+      "Coffee",
+      "Tea",
+      "Cold drink",
+      "Juice"
+    ]
+  },
+
+  {
+    id: 9,
+    text: "Rank what matters most in a partner",
+    options: [
+      "Loyalty",
+      "Humour",
+      "Ambition",
+      "Understanding"
+    ]
+  },
+
+  {
+    id: 10,
+    text: "Rank how you express care",
+    options: [
+      "Words",
+      "Actions",
+      "Time",
+      "Gifts"
+    ]
+  },
+
+  {
+    id: 11,
+    text: "Rank your preferred ways to connect",
+    options: [
+      "Calls",
+      "Text",
+      "Video calls",
+      "Meeting in person"
+    ]
+  },
+
+  {
+    id: 12,
+    text: "Rank what you expect from your partner",
+    options: [
+      "Prioritize you",
+      "Support your goals",
+      "Fun and chill",
+      "Give freedom"
+    ]
+  },
+
+  {
+    id: 13,
+    text: "Rank your favourite IPL teams",
+    options: [
+      "CSK",
+      "RCB",
+      "MI",
+      "Other"
     ]
   }
 
-]
-
+];
 export const eventsData = [
     {
         name: "Murder Mystery",
