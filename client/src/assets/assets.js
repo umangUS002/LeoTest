@@ -38,6 +38,10 @@ import mm from './Events/mm.png'
 import mrp from './Events/mrp.png'
 import orp from './Events/orp.png'
 
+// Bitotsav 26
+import gta from './Events/gta.jpeg'
+import himym from './Events/himym.jpeg'
+
 import post1 from './Posts/1.png'
 import post2 from './Posts/2.png'
 import post3 from './Posts/3.png'
@@ -78,7 +82,10 @@ export const assets = {
     bg_video_2,
     intro_vid : "https://ik.imagekit.io/umang1gb/LeoClubSiteContent/intro_vid.mp4?updatedAt=1769696783906",
     bg_image,
-    intro_vid_mob : "https://ik.imagekit.io/umang1gb/LeoClubSiteContent/intro_vid.mp4?updatedAt=1769696783906"
+    intro_vid_mob : "https://ik.imagekit.io/umang1gb/LeoClubSiteContent/intro_vid.mp4?updatedAt=1769696783906",
+
+    gta,
+    himym
 }
 
 export const menuLinks = [
@@ -114,24 +121,26 @@ export const eventsData = [
         status: "Partially Completed",
     },
     {
-        name: "Takeshi Castle",
-        Month: "February",
-        Date: "12th February",
-        Venue: "Shorbagh",
+        name: "GTA : Leo Santos",
+        Month: "March",
+        Date: "20th March",
+        Venue: "Shorbagh-2",
         type: 'Bitotsav',
-        image: assets.event2,
-        description: "Get ready for a whirlwind of unpredictable challenges, wild wipeouts, and non-stop laughter! From crashing through mystery doors to scrambling into shape-based alliances, racing on skateboards, and navigating blindfolded mazes—every round is a test of wit, speed, and sheer luck. Will you make it to the final showdown, or will the obstacles have the last laugh?",
-        teamSize: "4"
+        image: assets.gta,
+        description: "Ah Shit, Here We Go Again. Remember the first time you loaded up San Andreas and just knew this was different? That feeling of endless streets, no rules, and pure chaos? We're bringing that energy to real life. GTA: Leo Santos is a throwback to late nights on the couch, heart racing through every mission. Except this time? You are the character. Every round hits harder than a drive-by; pushing your speed, strategy and nerve to the limit. Claim your territory or end up wasted trying.",
+        teamSize: "4",
+        status: "Completed"
     },
     {
-        name: "Mismatched",
-        Month: "February",
-        Date: "14th February",
-        Venue: "Room 236",
+        name: "How I met your __?",
+        Month: "March",
+        Date: "21st March",
+        Venue: "Room 231",
         type: 'Bitotsav',
-        image: assets.event1,
-        description: "Mismatched is here to put that to the test in the most unexpected ways! From trying to read each other’s minds in the Telepathy Test, to awkwardly sketching on each other's backs in the Draw Relay, and finally tackling the chaotic Synergy Quest, this event is all about teamwork, trust, and a whole lot of laughter. It’s not about getting it perfect—it’s about embracing the confusion, miscommunication, and the absolute hilarity that comes with it!",
-        teamSize: "3"
+        image: assets.himym,
+        description: "And that’s how it all began… not with a plan, but with a moment. How I Met Your __?  is about that exact moment when two people, whether complete strangers or chaotic besties, come together and see what happens.Through a series of weird, hilarious, and slightly chaotic challenges, you and your partner will test your chemistry, communication, and ability to pretend you totally know what your teammate is thinking. Sometimes you’ll be perfectly in sync… sometimes it’s complete chaos but either way, with Leo Club, BIT Mesra in the mix, it turns into a story worth telling. Step in, fill in the blank, and make it legendary.",
+        teamSize: "2",
+        status: "Completed"
     },
     {
         name: "Deepotsav",
