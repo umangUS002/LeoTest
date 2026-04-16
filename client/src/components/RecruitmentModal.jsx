@@ -94,7 +94,7 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
 
         {/* Title */}
         <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-2">
-          Leo Club Recruitment 2025
+          Leo Club Recruitment 2026
         </h2>
 
         {/* Status */}
@@ -112,7 +112,7 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
             </p>
             <p className="text-slate-300">Join our community for updates:</p>
             <div className="flex flex-col gap-3">
-                <a href="https://chat.whatsapp.com/HKAHHMo74a3FN4fq0tB1Ij?mode=ems_copy_c" target="_blank" rel="noopener noreferrer" className="w-full rounded-lg bg-green-500/20 text-green-400 px-4 py-2 font-medium hover:bg-green-500/30 transition" > Leo'25 Recruitment Group </a>
+                <a href="https://chat.whatsapp.com/E9PejIdJUmi4d7AaXM9TkY" target="_blank" rel="noopener noreferrer" className="w-full rounded-lg bg-green-500/20 text-green-400 px-4 py-2 font-medium hover:bg-green-500/30 transition" > Leo'26 Recruitment Group </a>
                 <a href="https://www.instagram.com/leoclub_bitmesra?igsh=MTZ4enBodXQycjNwcA==" target="_blank" rel="noopener noreferrer" className="w-full rounded-lg bg-pink-500/20 text-pink-400 px-4 py-2 font-medium hover:bg-pink-500/30 transition" > Recruitment Updates on Instagram Page </a>
             </div>
           </div>
@@ -206,7 +206,7 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
                 htmlFor="samples"
                 className="block text-sm font-medium text-slate-300 mb-1"
               >
-                Upload Samples (links, drive, docs, etc.)
+                Upload Samples (links, drive, docs, etc.) - Optional
               </label>
               <input
                 type="file"

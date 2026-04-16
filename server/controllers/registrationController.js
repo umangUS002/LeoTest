@@ -8,7 +8,7 @@ export const registerEvent = async (req, res) => {
     const { name, email, phone, branch, batch, teamName, gender, caption, reason, degree } = JSON.parse(req.body.contestant);
     const imageFile = req.file
 
-    if (!name || !email || !phone || !branch || !batch || !gender || !imageFile || !caption || !reason || !degree) {
+    if (!name || !email || !phone || !branch || !batch || !gender || !caption || !reason || !degree) {
       return res.status(400).json({ message: "Missing required fields" });
     }
 
@@ -107,3 +107,12 @@ export const recruitmentRegistration = async(req, res) => {
     res.status(500).json({ message: "Error registering", error: error.message });
   }
 }
+
+export const getRecruitment = async (req, res) => {
+  try {
+    const count = await Recruitment.countDocuments();
+    res.json({ success: true, count });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching recruitments." });
+  }
+};

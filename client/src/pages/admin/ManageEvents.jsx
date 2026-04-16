@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 
 function ManageEvents() {
 
-  const { events, axios, fetchEvents, regMM, regMrMiss } = useContext(AppContext)
+  const { events, axios, fetchEvents, regMM, regMrMiss, rec } = useContext(AppContext)
 
   const [allEvents, setEvents] = useState([])
 
@@ -69,6 +69,12 @@ function ManageEvents() {
         <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all">
           <h3 className="text-lg font-semibold text-gray-700">Mr. &amp; Miss Pantheon</h3>
           <p className="mt-2 text-3xl font-bold text-pink-600">{regMrMiss}</p>
+          <span className="mt-1 text-sm text-gray-500">Registrations</span>
+        </div>
+
+        <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all">
+          <h3 className="text-lg font-semibold text-gray-700">2026 Recruitment</h3>
+          <p className="mt-2 text-3xl font-bold text-pink-600">{rec}</p>
           <span className="mt-1 text-sm text-gray-500">Registrations</span>
         </div>
       </div>
