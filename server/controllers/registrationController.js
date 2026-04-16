@@ -62,51 +62,67 @@ export const getRegistrations = async (req, res) => {
   }
 };
 
-export const recruitmentRegistration = async(req, res) => {
+export const recruitmentRegistration = async (req, res) => {
   try {
-    const { name, roll, email, phone, branch, batch, gender, subTeam, achievements, ques1, ques2, ques3, ques4} = JSON.parse(req.body.recruit);
-    const imageFile = req.file
+    const { name, roll, email, phone, branch, batch, gender, subTeam, achievements, ques1, ques2, ques3, ques4 } =
+      JSON.parse(req.body.recruit);
+
+    const imageFile = req.file;
 
     if (!name || !email || !roll || !phone || !branch || !batch || !gender || !subTeam || !ques1 || !ques2 || !ques3 || !ques4) {
       return res.status(400).json({ message: "Missing required fields" });
     }
 
-    const fileBuffer = fs.readFileSync(imageFile.path)
-    // Upload image to imageKit
-        const response = await imagekit.upload({
-            file: fileBuffer,
-            fileName: imageFile.originalname,
-            folder: "/Recruitment"
-        })
+    let samples = null; // default if no file
 
-        // Optimization through imageKit URL transformation
-        const optimizedImageUrl = imagekit.url({
-            path: response.filePath,
-            transformation: [
-                {quality: 'auto'},  // Auto compression
-                {format: 'webp'},   // Convert to modern format
-                {width: '1280'}      // Width resizing
-            ]
-        })
+    // ✅ Only run this if file exists
+    if (imageFile) {
+      const fileBuffer = fs.readFileSync(imageFile.path);
 
-      const samples = optimizedImageUrl;
+      const response = await imagekit.upload({
+        file: fileBuffer,
+        fileName: imageFile.originalname,
+        folder: "/Recruitment",
+      });
 
-    await  Recruitment.create({
+      const optimizedImageUrl = imagekit.url({
+        path: response.filePath,
+        transformation: [
+          { quality: "auto" },
+          { format: "webp" },
+          { width: "1280" },
+        ],
+      });
+
+      samples = optimizedImageUrl;
+    }
+
+    await Recruitment.create({
       name,
       roll,
       email,
       phone,
       branch,
       batch,
-      gender, subTeam, achievements, samples, ques1, ques2, ques3, ques4
+      gender,
+      subTeam,
+      achievements,
+      samples, // can be null now ✅
+      ques1,
+      ques2,
+      ques3,
+      ques4,
     });
 
+    res.json({ success: true, message: "Registration successful!" });
 
-    res.json({ success: true, message: "Registration successfull!" });
   } catch (error) {
-    res.status(500).json({ message: "Error registering", error: error.message });
+    res.status(500).json({
+      message: "Error registering",
+      error: error.message,
+    });
   }
-}
+};
 
 export const getRecruitment = async (req, res) => {
   try {
