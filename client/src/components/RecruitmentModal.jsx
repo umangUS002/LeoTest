@@ -13,7 +13,7 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
     gender: "",
     subTeam: "",
     achievements: "",
-    samples: null, // file
+    samples: "", // file
     ques1: "",
     ques2: "",
     ques3: "",
@@ -35,18 +35,18 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
     setRecruit({ ...recruit, [e.target.name]: e.target.value });
   };
 
-  const handleFileChange = (e) => {
-    setRecruit({ ...recruit, samples: e.target.files[0] });
-  };
+  // const handleFileChange = (e) => {
+  //   setRecruit({ ...recruit, samples: e.target.files[0] });
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-        const formData = new FormData();
+      const formData = new FormData();
       formData.append('recruit', JSON.stringify(recruit));  // ✅ correct object
-      formData.append('image', image);
+      //formData.append('image', image);
       const { data } = await axios.post(
         "/api/registrations/registerRecruit",
         formData
@@ -64,7 +64,7 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
           gender: "",
           subTeam: "",
           achievements: "",
-          samples: null,
+          samples: "",
           ques1: "",
           ques2: "",
           ques3: "",
@@ -112,8 +112,8 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
             </p>
             <p className="text-slate-300">Join our community for updates:</p>
             <div className="flex flex-col gap-3">
-                <a href="https://chat.whatsapp.com/E9PejIdJUmi4d7AaXM9TkY" target="_blank" rel="noopener noreferrer" className="w-full rounded-lg bg-green-500/20 text-green-400 px-4 py-2 font-medium hover:bg-green-500/30 transition" > Leo'26 Recruitment Group </a>
-                <a href="https://www.instagram.com/leoclub_bitmesra?igsh=MTZ4enBodXQycjNwcA==" target="_blank" rel="noopener noreferrer" className="w-full rounded-lg bg-pink-500/20 text-pink-400 px-4 py-2 font-medium hover:bg-pink-500/30 transition" > Recruitment Updates on Instagram Page </a>
+              <a href="https://chat.whatsapp.com/E9PejIdJUmi4d7AaXM9TkY" target="_blank" rel="noopener noreferrer" className="w-full rounded-lg bg-green-500/20 text-green-400 px-4 py-2 font-medium hover:bg-green-500/30 transition" > Leo'26 Recruitment Group </a>
+              <a href="https://www.instagram.com/leoclub_bitmesra?igsh=MTZ4enBodXQycjNwcA==" target="_blank" rel="noopener noreferrer" className="w-full rounded-lg bg-pink-500/20 text-pink-400 px-4 py-2 font-medium hover:bg-pink-500/30 transition" > Recruitment Updates on Instagram Page </a>
             </div>
           </div>
         ) : (
@@ -206,13 +206,14 @@ const RecruitmentModal = ({ recruitmentModal, setRecruitmentModal }) => {
                 htmlFor="samples"
                 className="block text-sm font-medium text-slate-300 mb-1"
               >
-                Upload Samples (links, drive, docs, etc.) - Optional
+                Upload Samples (drive link only) - Optional
               </label>
               <input
-                type="file"
+                type="text"
                 id="samples"
+                value={recruit.samples}
                 name="samples"
-                onChange={(e) => setImage(e.target.files[0])}
+                onChange={handleChange}
                 className="w-full px-3 py-2 rounded-lg border border-slate-700 bg-slate-800/60 text-slate-100 
                            focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 hover:border-slate-400 transition file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-cyan-500 file:text-white file:cursor-pointer"
               />
