@@ -489,7 +489,7 @@ const Hero = () => {
       {(!gatesOpened || showIntroVideo) && (
         <button
           onClick={handleSkipAnimation}
-          className="absolute bottom-6 right-6 md:bottom-8 md:right-8 z-[200] px-4 py-2 bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/20 hover:border-white/40 text-white rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-lg active:scale-95 group"
+          className="absolute bottom-20 right-6 md:bottom-8 md:right-8 z-[200] px-4 py-2 bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/20 hover:border-white/40 text-white rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-lg active:scale-95 group"
         >
           <span>Skip Intro</span>
           <svg
