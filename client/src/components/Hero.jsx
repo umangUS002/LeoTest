@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom'
 
 gsap.registerPlugin(ScrollTrigger);
 
+window.homeAnimationPlayedGlobal = window.homeAnimationPlayedGlobal || false;
+
 const Hero = () => {
 
   const navigate = useNavigate();
@@ -17,59 +19,245 @@ const Hero = () => {
   const infoRef = useRef(null);
   const introVideoRef = useRef(null);
 
-  const [progress, setProgress] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [gatesOpened, setGatesOpened] = useState(false);
+  const [progress, setProgress] = useState(() => {
+    return window.homeAnimationPlayedGlobal ? 100 : 0;
+  });
+  const [isLoaded, setIsLoaded] = useState(() => {
+    return window.homeAnimationPlayedGlobal;
+  });
+  const [gatesOpened, setGatesOpened] = useState(() => {
+    return window.homeAnimationPlayedGlobal;
+  });
   const [showIntroVideo, setShowIntroVideo] = useState(false);
+  const [leoTextAppeared, setLeoTextAppeared] = useState(() => {
+    return window.homeAnimationPlayedGlobal;
+  });
   const [eventDisplay, setEventDisplay] = useState(0);
   const [participantDisplay, setParticipantDisplay] = useState(0);
+  const [introVideoUrl, setIntroVideoUrl] = useState("");
+  const [bgVideoUrl, setBgVideoUrl] = useState("");
 
   const eventCount = useMotionValue(0);
   const participantCount = useMotionValue(0);
 
-  // Loading simulation
+  // Pre-load videos and track progress
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setIsLoaded(true);
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, 15);
+    if (window.homeAnimationPlayedGlobal) {
+      return;
+    }
 
-    const gateTimeout = setTimeout(() => {
-      setGatesOpened(true);
-    }, 2700);
+    let isMounted = true;
+    const createdUrls = [];
+
+    // Track download progress for both files
+    const progressTrackers = {
+      intro: { loaded: 0, total: 0 },
+      bg: { loaded: 0, total: 0 }
+    };
+
+    const updateProgress = () => {
+      if (!isMounted) return;
+      const total = progressTrackers.intro.total + progressTrackers.bg.total;
+      const loaded = progressTrackers.intro.loaded + progressTrackers.bg.loaded;
+      if (total > 0) {
+        const percent = Math.min(100, Math.floor((loaded / total) * 100));
+        setProgress(percent);
+        if (percent === 100) {
+          setIsLoaded(true);
+        }
+      }
+    };
+
+    const fetchVideo = async (url, type) => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
+        
+        const contentLength = response.headers.get("content-length");
+        const total = contentLength ? parseInt(contentLength, 10) : 0;
+        
+        progressTrackers[type].total = total;
+        progressTrackers[type].loaded = 0;
+
+        if (!total) {
+          const blob = await response.blob();
+          if (isMounted) {
+            progressTrackers[type].loaded = blob.size;
+            progressTrackers[type].total = blob.size;
+            updateProgress();
+            const objectUrl = URL.createObjectURL(blob);
+            createdUrls.push(objectUrl);
+            return objectUrl;
+          }
+          return "";
+        }
+
+        const reader = response.body.getReader();
+        const chunks = [];
+        let bytesRead = 0;
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          chunks.push(value);
+          bytesRead += value.byteLength;
+          if (isMounted) {
+            progressTrackers[type].loaded = bytesRead;
+            updateProgress();
+          }
+        }
+
+        if (isMounted) {
+          const blob = new Blob(chunks, { type: "video/mp4" });
+          const objectUrl = URL.createObjectURL(blob);
+          createdUrls.push(objectUrl);
+          return objectUrl;
+        }
+        return "";
+      } catch (error) {
+        console.error(`Failed to fetch video ${url}:`, error);
+        return url;
+      }
+    };
+
+    const initLoad = async () => {
+      const isMobileDevice = window.innerWidth < 768;
+      const introSrc = isMobileDevice ? assets.intro_vid_mob : assets.intro_vid;
+      const bgSrc = assets.bg_video;
+
+      const [introUrl, bgUrl] = await Promise.all([
+        fetchVideo(introSrc, "intro"),
+        fetchVideo(bgSrc, "bg")
+      ]);
+
+      if (isMounted) {
+        setIntroVideoUrl(introUrl);
+        setBgVideoUrl(bgUrl);
+        setIsLoaded(true);
+        setProgress(100);
+      }
+    };
+
+    initLoad();
 
     return () => {
-      clearInterval(interval);
-      clearTimeout(gateTimeout);
+      isMounted = false;
+      createdUrls.forEach((url) => {
+        if (url && url.startsWith("blob:")) {
+          try {
+            URL.revokeObjectURL(url);
+          } catch (e) {
+            console.error("Failed to revoke URL:", e);
+          }
+        }
+      });
     };
   }, []);
 
-  // After load & gates open → show intro video
+  // Gate opening runs 1.2s after load completes to transition smoothly
   useEffect(() => {
-    if (isLoaded && gatesOpened) {
+    if (isLoaded) {
+      const gateTimeout = setTimeout(() => {
+        setGatesOpened(true);
+      }, 1200);
+      return () => clearTimeout(gateTimeout);
+    }
+  }, [isLoaded]);
+
+  // After load & gates open → show intro video (if not already played)
+  useEffect(() => {
+    if (isLoaded && gatesOpened && !window.homeAnimationPlayedGlobal) {
       setShowIntroVideo(true);
-      introVideoRef.current?.play();
     }
   }, [isLoaded, gatesOpened]);
+
+  // Automatically attempt playing intro video when ref or url changes
+  useEffect(() => {
+    if (showIntroVideo && introVideoRef.current) {
+      introVideoRef.current.play().catch((err) => {
+        console.log("Intro video play attempt failed:", err);
+      });
+    }
+  }, [showIntroVideo, introVideoUrl]);
+
+  // Automatically attempt playing full background video when active and ready
+  useEffect(() => {
+    if (gatesOpened && !showIntroVideo && fullVideoRef.current) {
+      fullVideoRef.current.play().catch((err) => {
+        console.log("Bg video play attempt failed:", err);
+      });
+    }
+  }, [gatesOpened, showIntroVideo, bgVideoUrl]);
+
+  // Control scroll restriction based on loading, intro video, and LEO text animation states
+  useEffect(() => {
+    if (!isLoaded || !gatesOpened || showIntroVideo || !leoTextAppeared) {
+      window.dispatchEvent(new Event("disableScroll"));
+    } else {
+      window.dispatchEvent(new Event("enableScroll"));
+    }
+    return () => {
+      window.dispatchEvent(new Event("enableScroll"));
+    };
+  }, [isLoaded, gatesOpened, showIntroVideo, leoTextAppeared]);
+
+  // Resume play and sync time when returning to the tab (prevents freezing on tab switches)
+  useEffect(() => {
+    let hiddenTime = 0;
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "hidden") {
+        hiddenTime = Date.now();
+      } else if (document.visibilityState === "visible") {
+        if (hiddenTime > 0) {
+          const elapsed = (Date.now() - hiddenTime) / 1000;
+          hiddenTime = 0; // reset
+
+          if (showIntroVideo && introVideoRef.current) {
+            const video = introVideoRef.current;
+            const newTime = video.currentTime + elapsed;
+            if (video.duration && newTime >= video.duration) {
+              handleIntroEnd();
+            } else {
+              video.currentTime = newTime;
+              video.play().catch((err) => console.log("Intro play resume error:", err));
+            }
+          } else if (fullVideoRef.current) {
+            const video = fullVideoRef.current;
+            const duration = video.duration;
+            if (duration && !isNaN(duration)) {
+              video.currentTime = (video.currentTime + elapsed) % duration;
+            }
+            video.play().catch((err) => console.log("Bg play resume error:", err));
+          }
+        } else {
+          if (showIntroVideo && introVideoRef.current) {
+            introVideoRef.current.play().catch((err) => console.log("Intro play resume error:", err));
+          } else if (fullVideoRef.current) {
+            fullVideoRef.current.play().catch((err) => console.log("Bg play resume error:", err));
+          }
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [showIntroVideo]);
 
   const handleIntroEnd = () => {
-    setShowIntroVideo(false); // Hide intro after it ends
+    setShowIntroVideo(false);
+    window.homeAnimationPlayedGlobal = true;
   };
 
-  useEffect(() => {
-    const alreadyPlayed = sessionStorage.getItem("introPlayed");
-
-    if (!alreadyPlayed && isLoaded && gatesOpened) {
-      setShowIntroVideo(true);
-      sessionStorage.setItem("introPlayed", "true"); // mark as played
-    }
-  }, [isLoaded, gatesOpened]);
+  const handleSkipAnimation = () => {
+    window.homeAnimationPlayedGlobal = true;
+    setIsLoaded(true);
+    setGatesOpened(true);
+    setShowIntroVideo(false);
+    setLeoTextAppeared(true);
+  };
 
   // Scroll animations
   useEffect(() => {
@@ -105,6 +293,7 @@ const Hero = () => {
           },
           0
         );
+
 
         timeline.to(
           textRef.current,
@@ -216,32 +405,28 @@ const Hero = () => {
 
       {/* Intro video */}
       {showIntroVideo && (
-
         <video
           ref={introVideoRef}
+          src={introVideoUrl || assets.intro_vid_mob}
           autoPlay
           muted
           playsInline
           onEnded={handleIntroEnd}
           className="absolute inset-0 w-full h-full object-cover z-[100] opacity-100 transition-opacity duration-1000"
-        >
-          <source src={assets.intro_vid_mob} type="video/mp4" />
-        </video>
-
+        />
       )}
 
       {/* Background video */}
       <video
         ref={fullVideoRef}
+        src={bgVideoUrl || assets.bg_video}
         autoPlay
         muted
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-0 transition-all duration-1000"
         style={{ filter: "blur(0px)" }}
-      >
-        <source src={assets.bg_video} type="video/mp4" />
-      </video>
+      />
 
       {/* LEO Text (appears after intro video ends) */}
       <motion.div
@@ -252,6 +437,11 @@ const Hero = () => {
             : {}
         }
         transition={{ duration: 1.6, delay: 0.5 }}
+        onAnimationComplete={() => {
+          if (isLoaded && gatesOpened && !showIntroVideo) {
+            setLeoTextAppeared(true);
+          }
+        }}
         className="flex flex-col text-center"
       >
         <h1
@@ -294,6 +484,30 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Skip Button */}
+      {(!gatesOpened || showIntroVideo) && (
+        <button
+          onClick={handleSkipAnimation}
+          className="absolute bottom-6 right-6 md:bottom-8 md:right-8 z-[200] px-4 py-2 bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/20 hover:border-white/40 text-white rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-lg active:scale-95 group"
+        >
+          <span>Skip Intro</span>
+          <svg
+            className="w-3.5 h-3.5 transform transition-transform duration-300 group-hover:translate-x-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M13 5l7 7-7 7M5 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+      )}
     </div>
   );
 };
